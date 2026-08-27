@@ -11,9 +11,9 @@
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object? sender, EventArgs e)
+        private async void OnCounterClicked(object? sender, EventArgs e)
         {
-            
+            await Shell.Current.GoToAsync("///PresentationPage");
         }
     }
 }
