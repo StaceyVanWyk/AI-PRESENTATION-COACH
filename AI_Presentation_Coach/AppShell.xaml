@@ -4,11 +4,20 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:AI_Presentation_Coach"
-    Title="AI_Presentation_Coach">
+    Title="AI_Presentation_Coach For Stacey">
 
     <ShellContent
-        Title="Home"
+        Title="Home Page"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="MainPage"
+        />
+
+    <ShellContent
+        Title="Presentation"
+        ContentTemplate="{DataTemplate local:PresentationPage}"
+        Route="PresentationPage"
+        
+        />
+
 
 </Shell>
