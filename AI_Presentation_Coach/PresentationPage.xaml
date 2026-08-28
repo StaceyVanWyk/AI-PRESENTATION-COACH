@@ -16,6 +16,7 @@
             HorizontalOptions="Center" />
 
         <Button Text="Start Practice"
-         Clicked="Button_Clicked"       />
+         Clicked="Button_Clicked"
+         WidthRequest="200"       />
     </VerticalStackLayout>
 </ContentPage>

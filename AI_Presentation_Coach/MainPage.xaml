@@ -5,14 +5,16 @@
 
     <ScrollView>
         <VerticalStackLayout Spacing="20" Padding="20">
-            <Label Text="Welcome to AI Presentation Coach"
-             FontSize="50"      />
-
-            <Button
-                x:Name="CounterBtn"
-                Text="Start Presentation"
-                Clicked="OnCounterClicked"
-                />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition/>
+                    
+                </Grid.ColumnDefinitions>
+                
+            </Grid>
+                
+                
 
         </VerticalStackLayout>
     </ScrollView>
