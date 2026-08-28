@@ -3,11 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AI_Presentation_Coach.PresentationPage"
              Title="Presentation Page">
-    <VerticalStackLayout>
+    
+    <VerticalStackLayout Spacing="10" Padding="10" >
         <Image Source="dotnet_bot.png"/>
         <Label 
             Text="Ready to Present? "
+            Margin="50"
+            FontSize="20"
+            FontAttributes="Bold"
             VerticalOptions="Center" 
+            
             HorizontalOptions="Center" />
+
+        <Button Text="Start Practice"
+         Clicked="Button_Clicked"       />
     </VerticalStackLayout>
 </ContentPage>

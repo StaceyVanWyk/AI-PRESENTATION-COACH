@@ -4,8 +4,9 @@
              x:Class="AI_Presentation_Coach.MainPage">
 
     <ScrollView>
-        <VerticalStackLayout>
-            <Label Text="Welcome to AI Presentation Coach" />
+        <VerticalStackLayout Spacing="20" Padding="20">
+            <Label Text="Welcome to AI Presentation Coach"
+             FontSize="50"      />
 
             <Button
                 x:Name="CounterBtn"
