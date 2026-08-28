@@ -2,10 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AI_Presentation_Coach.PresentationPage"
-             Title="PresentationPage">
+             Title="Presentation Page">
     <VerticalStackLayout>
+        <Image Source="dotnet_bot.png"/>
         <Label 
-            Text="What would you like to do today? "
+            Text="Ready to Present? "
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
     </VerticalStackLayout>
