@@ -22,8 +22,31 @@
                     Text="Create Presentation"
                     Grid.Row="0"
                     Grid.Column="0"
+                    Margin="5"
                 />
-                
+
+                <Button 
+                    Text="My Presentation "
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Margin="5"
+                    />
+
+                <Button 
+                    Text="Practice"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="5"
+                    
+                    />
+
+                <Button
+                    Text="AI Coach"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="5"
+                    />
+
             </Grid>
                 
                 
