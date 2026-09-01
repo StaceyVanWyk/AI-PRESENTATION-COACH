@@ -2,6 +2,8 @@ namespace AI_Presentation_Coach.ViewModels;
 
 public class CreatePresentationViewModel
 {
+
+    
     public bool IsValid(string? title, string? topic)
     {
         if (string.IsNullOrWhiteSpace(title))

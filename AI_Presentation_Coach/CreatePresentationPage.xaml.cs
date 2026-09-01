@@ -1,41 +1,39 @@
-namespace AI_Presentation_Coach;
 using AI_Presentation_Coach.Models;
+using AI_Presentation_Coach.ViewModels;
+
+namespace AI_Presentation_Coach;
+
 public partial class CreatePresentationPage : ContentPage
 {
-	public CreatePresentationPage()
-	{
-		InitializeComponent();
-	}
+    private readonly CreatePresentationViewModel _viewModel;
 
-private async void OnCreatePresentationClicked(object? sender, EventArgs e)
-{
-    var title = PresentationTitleEntry.Text;
-
-    if (string.IsNullOrWhiteSpace(title))
+    public CreatePresentationPage()
     {
-        await DisplayAlert(
-            "Missing Information",
-            "Please enter a presentation title.",
-            "OK");
+        InitializeComponent();
 
-        return;
+        _viewModel = new CreatePresentationViewModel();
     }
 
-    var topic = PresentationTopicEntry.Text;
-
-    if (string.IsNullOrWhiteSpace(topic))
+    private async void OnCreatePresentationClicked(object? sender, EventArgs e)
     {
-        await DisplayAlert(
-            "Missing Information",
-            "Please enter a presentation topic.",
-            "OK");
+        var title = PresentationTitleEntry.Text;
+        var topic = PresentationTopicEntry.Text;
 
-        return;
-    }
+        // Validate title and topic through the ViewModel
+        if (!_viewModel.IsValid(title, topic))
+        {
+            await DisplayAlert(
+                "Missing Information",
+                "Please enter a presentation title and topic.",
+                "OK");
 
-    var audience = AudiencePicker.SelectedItem;
+            return;
+        }
 
-    if(audience == null)
+        // Get selected audience
+        var audience = AudiencePicker.SelectedItem;
+
+        if (audience == null)
         {
             await DisplayAlert(
                 "Missing Information",
@@ -43,12 +41,12 @@ private async void OnCreatePresentationClicked(object? sender, EventArgs e)
                 "OK");
 
             return;
-            
-
         }
-    var presentationType = PresentationTypePicker.SelectedItem;
 
-        if ( presentationType == null)
+        // Get selected presentation type
+        var presentationType = PresentationTypePicker.SelectedItem;
+
+        if (presentationType == null)
         {
             await DisplayAlert(
                 "Missing Information",
@@ -58,19 +56,17 @@ private async void OnCreatePresentationClicked(object? sender, EventArgs e)
             return;
         }
 
-    var presentation = new Presentation
-    {
-    Title = title,
-    Topic = topic,
-    Audience = audience.ToString(),
-    PresentationType = presentationType.ToString()
-    };
+        // Create the Presentation model
+        var presentation = new Presentation
+        {
+            Title = title,
+            Topic = topic,
+            Audience = audience.ToString(),
+            PresentationType = presentationType.ToString()
+        };
 
-
-
-    await Navigation.PushAsync(new PresentationOutlinePage(presentation));
-
-
-}
-
+        // Navigate to the outline page and pass the presentation
+        await Navigation.PushAsync(
+            new PresentationOutlinePage(presentation));
+    }
 }
