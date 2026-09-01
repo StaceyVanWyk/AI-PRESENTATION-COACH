@@ -4,20 +4,15 @@ public class CreatePresentationViewModel
 {
 
     
-    public bool IsValid(string? title, string? topic)
+   public string? ValidateTitle(string? title)
+{
+    if (string.IsNullOrWhiteSpace(title))
     {
-        if (string.IsNullOrWhiteSpace(title))
-        {
-            return false;
-        }
-
-        if (string.IsNullOrWhiteSpace(topic))
-        {
-            return false;
-        }
-
-        return true;
+        return "Please enter a presentation title.";
     }
+
+    return null;
+}
       public bool IsAudienceSelected(object? audience)
     {
         return audience != null;
