@@ -25,6 +25,7 @@
                 FontAttributes="Bold" />
 
             <Entry
+                x:Name="PresentationTitleEntry"
                 Placeholder="Enter presentation title" />
 
             <!-- Presentation Topic -->
@@ -33,6 +34,7 @@
                 FontAttributes="Bold" />
 
             <Entry
+                x:Name="PresentationTopicEntry"
                 Placeholder="Enter presentation topic" />
 
             <!-- Audience -->
@@ -41,6 +43,7 @@
                 FontAttributes="Bold" />
 
             <Picker
+                x:Name="AudiencePicker"
                 Title="Select Audience">
 
                 <Picker.Items>
@@ -58,6 +61,7 @@
                 FontAttributes="Bold" />
 
             <Picker
+                x:Name="PresentationTypePicker"
                 Title="Select Presentation Type">
 
                 <Picker.Items>
