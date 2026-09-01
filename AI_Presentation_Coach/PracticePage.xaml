@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AI_Presentation_Coach.PracticePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Practice">
+
+    <VerticalStackLayout
+        Padding="30"
+        Spacing="20">
+
+        <Label
+            Text="Practice Presentation"
+            FontSize="28"
+            FontAttributes="Bold"
+            HorizontalOptions="Center" />
+
+        <Label
+            Text="Your practice session will appear here."
+            FontSize="18"
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center" />
+
+    </VerticalStackLayout>
+
+</ContentPage>

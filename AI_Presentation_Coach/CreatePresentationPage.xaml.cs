@@ -6,4 +6,9 @@ public partial class CreatePresentationPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+	private async void OnCreatePresentationClicked(object? sender, EventArgs e)
+	{
+		await Shell.Current.GoToAsync("///PresentationPage");
+	}
 }
