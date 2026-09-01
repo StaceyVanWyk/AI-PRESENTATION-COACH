@@ -34,7 +34,29 @@ private async void OnCreatePresentationClicked(object? sender, EventArgs e)
     }
 
     var audience = AudiencePicker.SelectedItem;
+
+    if(audience == null)
+        {
+            await DisplayAlert(
+                "Missing Information",
+                "Please select an audience.",
+                "OK");
+
+            return;
+            
+
+        }
     var presentationType = PresentationTypePicker.SelectedItem;
+
+        if ( presentationType == null)
+        {
+            await DisplayAlert(
+                "Missing Information",
+                "Please select a presentation type.",
+                "OK");
+
+            return;
+        }
 
     await DisplayAlert(
         "Presentation Details",
