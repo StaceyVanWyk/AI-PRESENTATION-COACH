@@ -18,4 +18,13 @@ public class CreatePresentationViewModel
 
         return true;
     }
+      public bool IsAudienceSelected(object? audience)
+    {
+        return audience != null;
+    }
+
+    public bool IsPresentationTypeSelected(object? presentationType)
+    {
+        return presentationType != null;
+    }
 }
