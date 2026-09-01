@@ -17,22 +17,36 @@ public partial class CreatePresentationPage : ContentPage
     private async void OnCreatePresentationClicked(object? sender, EventArgs e)
     {
         var title = PresentationTitleEntry.Text;
-        var topic = PresentationTopicEntry.Text;
 
-        // Validate title and topic
-        if (!_viewModel.IsValid(title, topic))
+        // Validate title
+        var titleError = _viewModel.ValidateTitle(title);
+
+        if (titleError != null)
         {
             await DisplayAlert(
                 "Missing Information",
-                "Please enter a presentation title and topic.",
+                titleError,
                 "OK");
 
             return;
         }
 
-        // Get the selected audience
+        var topic = PresentationTopicEntry.Text;
+
+        // Validate topic
+        if (string.IsNullOrWhiteSpace(topic))
+        {
+            await DisplayAlert(
+                "Missing Information",
+                "Please enter a presentation topic.",
+                "OK");
+
+            return;
+        }
+
         var audience = AudiencePicker.SelectedItem;
 
+        // Validate audience
         if (!_viewModel.IsAudienceSelected(audience))
         {
             await DisplayAlert(
@@ -43,9 +57,9 @@ public partial class CreatePresentationPage : ContentPage
             return;
         }
 
-        // Get the selected presentation type
         var presentationType = PresentationTypePicker.SelectedItem;
 
+        // Validate presentation type
         if (!_viewModel.IsPresentationTypeSelected(presentationType))
         {
             await DisplayAlert(
@@ -56,7 +70,7 @@ public partial class CreatePresentationPage : ContentPage
             return;
         }
 
-        // Create the Presentation model
+        // Create Presentation model
         var presentation = new Presentation
         {
             Title = title!,
