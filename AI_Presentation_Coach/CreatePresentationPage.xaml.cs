@@ -23,7 +23,7 @@ public partial class CreatePresentationPage : ContentPage
 
         if (titleError != null)
         {
-            await DisplayAlert(
+            await DisplayAlertAsync(
                 "Missing Information",
                 titleError,
                 "OK");
@@ -34,11 +34,13 @@ public partial class CreatePresentationPage : ContentPage
         var topic = PresentationTopicEntry.Text;
 
         // Validate topic
-        if (string.IsNullOrWhiteSpace(topic))
+        var topicError = _viewModel.ValidateTopic(topic);
+
+        if (topicError != null)
         {
-            await DisplayAlert(
+            await DisplayAlertAsync(
                 "Missing Information",
-                "Please enter a presentation topic.",
+                topicError,
                 "OK");
 
             return;
@@ -47,11 +49,13 @@ public partial class CreatePresentationPage : ContentPage
         var audience = AudiencePicker.SelectedItem;
 
         // Validate audience
-        if (!_viewModel.IsAudienceSelected(audience))
+        var audienceError = _viewModel.ValidateAudience(audience);
+
+        if (audienceError != null)
         {
-            await DisplayAlert(
+            await DisplayAlertAsync(
                 "Missing Information",
-                "Please select an audience.",
+                audienceError,
                 "OK");
 
             return;
@@ -60,11 +64,14 @@ public partial class CreatePresentationPage : ContentPage
         var presentationType = PresentationTypePicker.SelectedItem;
 
         // Validate presentation type
-        if (!_viewModel.IsPresentationTypeSelected(presentationType))
+        var presentationTypeError =
+            _viewModel.ValidatePresentationType(presentationType);
+
+        if (presentationTypeError != null)
         {
-            await DisplayAlert(
+            await DisplayAlertAsync(
                 "Missing Information",
-                "Please select a presentation type.",
+                presentationTypeError,
                 "OK");
 
             return;
