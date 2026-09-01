@@ -19,7 +19,7 @@ public partial class CreatePresentationPage : ContentPage
         var title = PresentationTitleEntry.Text;
         var topic = PresentationTopicEntry.Text;
 
-        // Validate title and topic through the ViewModel
+        // Validate title and topic
         if (!_viewModel.IsValid(title, topic))
         {
             await DisplayAlert(
@@ -30,10 +30,10 @@ public partial class CreatePresentationPage : ContentPage
             return;
         }
 
-        // Get selected audience
+        // Get the selected audience
         var audience = AudiencePicker.SelectedItem;
 
-        if (audience == null)
+        if (!_viewModel.IsAudienceSelected(audience))
         {
             await DisplayAlert(
                 "Missing Information",
@@ -43,10 +43,10 @@ public partial class CreatePresentationPage : ContentPage
             return;
         }
 
-        // Get selected presentation type
+        // Get the selected presentation type
         var presentationType = PresentationTypePicker.SelectedItem;
 
-        if (presentationType == null)
+        if (!_viewModel.IsPresentationTypeSelected(presentationType))
         {
             await DisplayAlert(
                 "Missing Information",
@@ -59,13 +59,13 @@ public partial class CreatePresentationPage : ContentPage
         // Create the Presentation model
         var presentation = new Presentation
         {
-            Title = title,
-            Topic = topic,
-            Audience = audience.ToString(),
-            PresentationType = presentationType.ToString()
+            Title = title!,
+            Topic = topic!,
+            Audience = audience.ToString()!,
+            PresentationType = presentationType.ToString()!
         };
 
-        // Navigate to the outline page and pass the presentation
+        // Navigate to the outline page
         await Navigation.PushAsync(
             new PresentationOutlinePage(presentation));
     }
