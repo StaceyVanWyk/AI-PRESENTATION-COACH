@@ -1,17 +1,20 @@
 using AI_Presentation_Coach.Models;
 using AI_Presentation_Coach.ViewModels;
+using AI_Presentation_Coach.Services;
 
 namespace AI_Presentation_Coach;
 
 public partial class CreatePresentationPage : ContentPage
 {
     private readonly CreatePresentationViewModel _viewModel;
+    private readonly PresentationService _presentationService;
 
     public CreatePresentationPage()
     {
         InitializeComponent();
 
         _viewModel = new CreatePresentationViewModel();
+        _presentationService = new PresentationService();
     }
 
     private async void OnCreatePresentationClicked(object? sender, EventArgs e)
@@ -77,14 +80,11 @@ public partial class CreatePresentationPage : ContentPage
             return;
         }
 
-        // Create Presentation model
-        var presentation = new Presentation
-        {
-            Title = title!,
-            Topic = topic!,
-            Audience = audience.ToString()!,
-            PresentationType = presentationType.ToString()!
-        };
+        var presentation = _presentationService.CreatePresentation(
+        title!,
+        topic!,
+        audience.ToString()!,
+        presentationType.ToString()!);
 
         // Navigate to the outline page
         await Navigation.PushAsync(
