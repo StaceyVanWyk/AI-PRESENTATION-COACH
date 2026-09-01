@@ -9,8 +9,14 @@ public partial class PresentationOutlinePage : ContentPage
     public PresentationOutlinePage(Presentation presentation)
     {
         InitializeComponent();
+        
 
         _presentation = presentation;
+
+        PresentationTitleLabel.Text = _presentation.Title;
+        PresentationTopicLabel.Text = _presentation.Topic;
+        AudienceLabel.Text = _presentation.Audience;
+        PresentationTypeLabel.Text = _presentation.PresentationType;
     }
 }
 

@@ -18,15 +18,36 @@
                 FontAttributes="Bold"
                 HorizontalOptions="Center" />
 
-            <!-- Presentation Information -->
+            <!-- Presentation Title -->
             <Label
-                Text="AI in Healthcare"
+                x:Name="PresentationTitleLabel"
+                Text=""
                 FontSize="20"
                 FontAttributes="Bold" />
 
+            <!-- Presentation Topic -->
+            <Label
+                x:Name="PresentationTopicLabel"
+                Text=""
+                FontSize="16" />
+
+            <!-- Audience -->
+            <Label
+                x:Name="AudienceLabel"
+                Text=""
+                FontSize="14" />
+
+            <!-- Presentation Type -->
+            <Label
+                x:Name="PresentationTypeLabel"
+                Text=""
+                FontSize="20" />
+
+            <!-- Description -->
             <Label
                 Text="AI-generated outline based on your presentation details."
-                FontSize="14" />
+                FontSize="14"
+                Margin="0,5,0,5" />
 
             <!-- Outline Section 1 -->
             <Frame
@@ -42,7 +63,7 @@
                         FontAttributes="Bold" />
 
                     <Label
-                        Text="Introduce the topic and explain why AI in healthcare is important." />
+                        Text="Introduce the topic and explain why it is important." />
 
                 </VerticalStackLayout>
 
@@ -62,7 +83,7 @@
                         FontAttributes="Bold" />
 
                     <Label
-                        Text="Explain the healthcare challenge that the presentation is addressing." />
+                        Text="Explain the problem or challenge that the presentation addresses." />
 
                 </VerticalStackLayout>
 
@@ -82,7 +103,7 @@
                         FontAttributes="Bold" />
 
                     <Label
-                        Text="Present the proposed AI solution and explain how it can help." />
+                        Text="Present the proposed solution and explain how it can help." />
 
                 </VerticalStackLayout>
 
