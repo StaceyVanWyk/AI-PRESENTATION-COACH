@@ -2,24 +2,43 @@ namespace AI_Presentation_Coach.ViewModels;
 
 public class CreatePresentationViewModel
 {
-
-    
-   public string? ValidateTitle(string? title)
-{
-    if (string.IsNullOrWhiteSpace(title))
+    public string? ValidateTitle(string? title)
     {
-        return "Please enter a presentation title.";
+        if (string.IsNullOrWhiteSpace(title))
+        {
+            return "Please enter a presentation title.";
+        }
+
+        return null;
     }
 
-    return null;
-}
-      public bool IsAudienceSelected(object? audience)
+    public string? ValidateTopic(string? topic)
     {
-        return audience != null;
+        if (string.IsNullOrWhiteSpace(topic))
+        {
+            return "Please enter a presentation topic.";
+        }
+
+        return null;
     }
 
-    public bool IsPresentationTypeSelected(object? presentationType)
+    public string? ValidateAudience(object? audience)
     {
-        return presentationType != null;
+        if (audience == null)
+        {
+            return "Please select an audience.";
+        }
+
+        return null;
+    }
+
+    public string? ValidatePresentationType(object? presentationType)
+    {
+        if (presentationType == null)
+        {
+            return "Please select a presentation type.";
+        }
+
+        return null;
     }
 }
