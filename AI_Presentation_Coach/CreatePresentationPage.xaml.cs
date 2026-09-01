@@ -7,26 +7,38 @@ public partial class CreatePresentationPage : ContentPage
 		InitializeComponent();
 	}
 
-	private async void OnCreatePresentationClicked(object? sender, EventArgs e)
+private async void OnCreatePresentationClicked(object? sender, EventArgs e)
+{
+    var title = PresentationTitleEntry.Text;
 
-	{
+    if (string.IsNullOrWhiteSpace(title))
+    {
+        await DisplayAlert(
+            "Missing Information",
+            "Please enter a presentation title.",
+            "OK");
 
-		var title = PresentationTitleEntry.Text;
-		var topic = PresentationTopicEntry.Text;
-		var audience = AudiencePicker.SelectedItem;
-		var presentationType = PresentationTypePicker.SelectedItem;
+        return;
+    }
 
-		if (string.IsNullOrWhiteSpace(title))
+    var topic = PresentationTopicEntry.Text;
 
-		{
-				await DisplayAlert("Presentation Details",
-    $"Title: {title}\nTopic: {topic}\nAudience: {audience}\nType: {presentationType}",
-    "OK");
+    if (string.IsNullOrWhiteSpace(topic))
+    {
+        await DisplayAlert(
+            "Missing Information",
+            "Please enter a presentation topic.",
+            "OK");
 
-	return;
-		}
-		
-	
-		
+        return;
+    }
+
+    var audience = AudiencePicker.SelectedItem;
+    var presentationType = PresentationTypePicker.SelectedItem;
+
+    await DisplayAlert(
+        "Presentation Details",
+        $"Title: {title}\nTopic: {topic}\nAudience: {audience}\nType: {presentationType}",
+        "OK");
 }
 }
