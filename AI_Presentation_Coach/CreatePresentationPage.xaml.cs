@@ -58,9 +58,7 @@ private async void OnCreatePresentationClicked(object? sender, EventArgs e)
             return;
         }
 
-    await DisplayAlert(
-        "Presentation Details",
-        $"Title: {title}\nTopic: {topic}\nAudience: {audience}\nType: {presentationType}",
-        "OK");
+    await Shell.Current.GoToAsync("///PresentationOutlinePage");
 }
+
 }

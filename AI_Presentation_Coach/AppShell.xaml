@@ -25,6 +25,13 @@
         Route="CreatePresentationPage"   
 
 />
+ <ShellContent 
+
+    Title="Presentation Outline"
+    ContentTemplate="{DataTemplate local:PresentationOutlinePage}"
+    Route="PresentationOutlinePage"
+    
+    />
 
 <ShellContent
         Title="Practice"
@@ -33,4 +40,5 @@
         />
 
    
+  
 </Shell>
