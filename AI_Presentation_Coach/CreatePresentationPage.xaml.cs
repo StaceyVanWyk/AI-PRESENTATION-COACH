@@ -1,5 +1,5 @@
 namespace AI_Presentation_Coach;
-
+using AI_Presentation_Coach.Models;
 public partial class CreatePresentationPage : ContentPage
 {
 	public CreatePresentationPage()
@@ -58,7 +58,19 @@ private async void OnCreatePresentationClicked(object? sender, EventArgs e)
             return;
         }
 
-    await Shell.Current.GoToAsync("///PresentationOutlinePage");
+    var presentation = new Presentation
+    {
+    Title = title,
+    Topic = topic,
+    Audience = audience.ToString(),
+    PresentationType = presentationType.ToString()
+    };
+
+
+
+    await Navigation.PushAsync(new PresentationOutlinePage(presentation));
+
+
 }
 
 }
