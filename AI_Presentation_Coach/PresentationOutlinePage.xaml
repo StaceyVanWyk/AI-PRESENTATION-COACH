@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AI_Presentation_Coach.PresentationOutlinePage"
+             Title="Presentation Outline">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Spacing="15"
+            Padding="20">
+
+            <!-- Page Heading -->
+            <Label
+                Text="Your Presentation Outline"
+                FontSize="24"
+                FontAttributes="Bold"
+                HorizontalOptions="Center" />
+
+            <!-- Presentation Information -->
+            <Label
+                Text="AI in Healthcare"
+                FontSize="20"
+                FontAttributes="Bold" />
+
+            <Label
+                Text="AI-generated outline based on your presentation details."
+                FontSize="14" />
+
+            <!-- Outline Section 1 -->
+            <Frame
+                Padding="15"
+                CornerRadius="12">
+
+                <VerticalStackLayout
+                    Spacing="5">
+
+                    <Label
+                        Text="1. Introduction"
+                        FontSize="18"
+                        FontAttributes="Bold" />
+
+                    <Label
+                        Text="Introduce the topic and explain why AI in healthcare is important." />
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+            <!-- Outline Section 2 -->
+            <Frame
+                Padding="15"
+                CornerRadius="12">
+
+                <VerticalStackLayout
+                    Spacing="5">
+
+                    <Label
+                        Text="2. The Problem"
+                        FontSize="18"
+                        FontAttributes="Bold" />
+
+                    <Label
+                        Text="Explain the healthcare challenge that the presentation is addressing." />
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+            <!-- Outline Section 3 -->
+            <Frame
+                Padding="15"
+                CornerRadius="12">
+
+                <VerticalStackLayout
+                    Spacing="5">
+
+                    <Label
+                        Text="3. The Solution"
+                        FontSize="18"
+                        FontAttributes="Bold" />
+
+                    <Label
+                        Text="Present the proposed AI solution and explain how it can help." />
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+            <!-- Outline Section 4 -->
+            <Frame
+                Padding="15"
+                CornerRadius="12">
+
+                <VerticalStackLayout
+                    Spacing="5">
+
+                    <Label
+                        Text="4. Conclusion"
+                        FontSize="18"
+                        FontAttributes="Bold" />
+
+                    <Label
+                        Text="Summarise the main points and leave the audience with a clear final message." />
+
+                </VerticalStackLayout>
+
+            </Frame>
+
+            <!-- Actions -->
+            <Button
+                Text="Edit Outline" />
+
+            <Button
+                Text="Generate Slides" />
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
