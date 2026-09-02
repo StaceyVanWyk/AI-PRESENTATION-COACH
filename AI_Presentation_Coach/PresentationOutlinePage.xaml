@@ -144,10 +144,12 @@
             <!-- Actions -->
 
             <Button
-                Text="Edit Outline" />
+                Text="Save Outline"
+                Clicked="OnSaveOutlineClicked" />
 
             <Button
-                Text="Generate Slides" />
+                Text="Generate Slides"
+                Clicked="OnGenerateSlidesClicked" />
 
         </VerticalStackLayout>
 
