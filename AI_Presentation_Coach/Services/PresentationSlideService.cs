@@ -27,6 +27,12 @@ public class PresentationSlideService
             {
                 SlideNumber = 3,
                 Content=outline.Solution,
+            },
+
+            new PresentationSlide
+            {
+                SlideNumber = 4,
+                Content=outline.Conclusion,
             }
         };
     }

@@ -43,10 +43,12 @@ public partial class PresentationOutlinePage : ContentPage
     }
 
     private async void OnGenerateSlidesClicked(object? sender, EventArgs e)
-    {
+    { 
+        _viewModel.GenerateSlides();
+
         await DisplayAlertAsync(
             "Slides Generated",
-            "Your presentation slides have been generated successfully.",
+            $"Your presentation slides has {_viewModel.Slides.Count} slides.",
             "OK"
         );
     }
