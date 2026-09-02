@@ -86,11 +86,11 @@
                         FontSize="18"
                         FontAttributes="Bold" />
 
-                    <Label
-                        x:Name="ProblemLabel"
+                    <Editor
+                        x:Name="ProblemEditor"
                         Text=""
                         FontSize="14" />
-
+                        
                 </VerticalStackLayout>
 
             </Frame>
@@ -109,10 +109,10 @@
                         FontSize="18"
                         FontAttributes="Bold" />
 
-                    <Label
-                        x:Name="SolutionLabel"
+                    <Editor
+                        x:Name="SolutionEditor"
                         Text=""
-                        FontSize="14" />
+                        FontSize="14" />    
 
                 </VerticalStackLayout>
 
@@ -132,8 +132,8 @@
                         FontSize="18"
                         FontAttributes="Bold" />
 
-                    <Label
-                        x:Name="ConclusionLabel"
+                    <Editor
+                        x:Name="ConclusionEditor"
                         Text=""
                         FontSize="14" />
 

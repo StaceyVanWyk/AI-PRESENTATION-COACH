@@ -27,8 +27,8 @@ public partial class PresentationOutlinePage : ContentPage
 
         // Display the generated outline
         IntroductionEditor.Text = outline.Introduction;
-        ProblemLabel.Text = outline.Problem;
-        SolutionLabel.Text = outline.Solution;
-        ConclusionLabel.Text = outline.Conclusion;
+        ProblemEditor.Text = outline.Problem;
+        SolutionEditor.Text = outline.Solution;
+        ConclusionEditor.Text = outline.Conclusion;
     }
 }
