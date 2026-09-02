@@ -46,10 +46,10 @@ public partial class PresentationOutlinePage : ContentPage
     { 
         _viewModel.GenerateSlides();
 
-        await DisplayAlertAsync(
-            "Slides Generated",
-            $"Your presentation slides has {_viewModel.Slides.Count} slides.",
-            "OK"
-        );
+        await Navigation.PushAsync(
+            new PresentationSlidePage(_viewModel.Slides));
+        
+            
+        
     }
 }
