@@ -60,12 +60,13 @@
                     <Label
                         Text="1. Introduction"
                         FontSize="18"
-                        FontAttributes="Bold" />
+                        FontAttributes="Bold"
+                         />
 
-                    <Label
-                        x:Name="IntroductionLabel"
-                        Text=""
-                        FontSize="14" />
+                    <Editor
+                    x:Name="IntroductionEditor"
+                    Text=""
+                    FontSize="14" />
 
                 </VerticalStackLayout>
 

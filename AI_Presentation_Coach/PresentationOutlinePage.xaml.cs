@@ -26,7 +26,7 @@ public partial class PresentationOutlinePage : ContentPage
         var outline = _outlineService.GenerateOutline(_presentation);
 
         // Display the generated outline
-        IntroductionLabel.Text = outline.Introduction;
+        IntroductionEditor.Text = outline.Introduction;
         ProblemLabel.Text = outline.Problem;
         SolutionLabel.Text = outline.Solution;
         ConclusionLabel.Text = outline.Conclusion;
