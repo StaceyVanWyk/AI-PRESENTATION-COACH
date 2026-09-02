@@ -14,13 +14,19 @@ public partial class PresentationSlidePage : ContentPage
 
         foreach(var slide in _slides)
         {
-            var slideFrame = new Frame
+            var slideBorder = new Border
             {
-                Padding = 15,
-                CornerRadius = 12,
-                BackgroundColor = Color.FromArgb("#F0F0F0"),
-                
+
+                Padding = 20,
+                StrokeThickness = 20,
+                StrokeShape = new Microsoft.Maui.Controls.Shapes.RoundRectangle
+                {
+                    CornerRadius = 12
+                },
+               
             };
+
+           
 
             var slideLayout = new VerticalStackLayout
             {
@@ -51,9 +57,9 @@ public partial class PresentationSlidePage : ContentPage
             slideLayout.Children.Add(titleLabel);
             slideLayout.Children.Add(ContentLabel);
 
-            slideFrame.Content = slideLayout;
+            slideBorder.Content = slideLayout;
             
-            SlidesContainer.Children.Add(slideFrame);
+            SlidesContainer.Children.Add(slideBorder);
         }
     }
 }
