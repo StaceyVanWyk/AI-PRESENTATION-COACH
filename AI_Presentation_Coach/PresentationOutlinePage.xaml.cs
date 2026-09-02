@@ -1,34 +1,53 @@
 using AI_Presentation_Coach.Models;
-using AI_Presentation_Coach.Services;
+using AI_Presentation_Coach.ViewModels;
 
 namespace AI_Presentation_Coach;
 
 public partial class PresentationOutlinePage : ContentPage
 {
-    private readonly Presentation _presentation;
-    private readonly PresentationOutlineService _outlineService;
+    private readonly PresentationOutlineViewModel _viewModel;
 
     public PresentationOutlinePage(Presentation presentation)
     {
         InitializeComponent();
 
-        _presentation = presentation;
-
-        _outlineService = new PresentationOutlineService();
+        _viewModel = new PresentationOutlineViewModel(presentation);
 
         // Display presentation information
-        PresentationTitleLabel.Text = _presentation.Title;
-        PresentationTopicLabel.Text = _presentation.Topic;
-        AudienceLabel.Text = _presentation.Audience;
-        PresentationTypeLabel.Text = _presentation.PresentationType;
-
-        // Generate the presentation outline
-        var outline = _outlineService.GenerateOutline(_presentation);
+        PresentationTitleLabel.Text = _viewModel.Presentation.Title;
+        PresentationTopicLabel.Text = _viewModel.Presentation.Topic;
+        AudienceLabel.Text = _viewModel.Presentation.Audience;
+        PresentationTypeLabel.Text = _viewModel.Presentation.PresentationType;
 
         // Display the generated outline
-        IntroductionEditor.Text = outline.Introduction;
-        ProblemEditor.Text = outline.Problem;
-        SolutionEditor.Text = outline.Solution;
-        ConclusionEditor.Text = outline.Conclusion;
+        IntroductionEditor.Text = _viewModel.Outline.Introduction;
+        ProblemEditor.Text = _viewModel.Outline.Problem;
+        SolutionEditor.Text = _viewModel.Outline.Solution;
+        ConclusionEditor.Text = _viewModel.Outline.Conclusion;
+    }
+
+    private async void OnSaveOutlineClicked(object? sender, EventArgs e)
+    {
+        _viewModel.SaveOutline(
+            IntroductionEditor.Text ?? string.Empty,
+            ProblemEditor.Text ?? string.Empty,
+            SolutionEditor.Text ?? string.Empty,
+            ConclusionEditor.Text ?? string.Empty
+        );
+
+        await DisplayAlertAsync(
+            "Outline Saved",
+            "Your presentation outline has been saved successfully.",
+            "OK"
+        );
+    }
+
+    private async void OnGenerateSlidesClicked(object? sender, EventArgs e)
+    {
+        await DisplayAlertAsync(
+            "Slides Generated",
+            "Your presentation slides have been generated successfully.",
+            "OK"
+        );
     }
 }
