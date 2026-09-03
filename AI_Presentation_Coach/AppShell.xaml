@@ -7,6 +7,12 @@
     Title="AI_Presentation_Coach For Stacey">
 
     <ShellContent
+    Title="Login"
+    ContentTemplate="{DataTemplate local:LoginPage}"
+    Route="LoginPage"
+    />
+
+    <ShellContent
         Title="Home Page"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage"

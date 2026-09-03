@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AI_Presentation_Coach.LoginPage"
+    Title="Login">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30"
+            Spacing="20"
+            VerticalOptions="Center">
+
+            <Label
+                Text="AI Presentation Coach"
+                FontSize="30"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center" />
+
+            <Label
+                Text="Create better presentations with confidence."
+                FontSize="16"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center" />
+
+            <VerticalStackLayout
+                Spacing="8"
+                Margin="0,20,0,0">
+
+                <Label
+                    Text="Email"
+                    FontAttributes="Bold" />
+
+                <Entry
+                    x:Name="EmailEntry"
+                    Placeholder="Enter your email"
+                    Keyboard="Email" />
+
+            </VerticalStackLayout>
+
+            <VerticalStackLayout
+                Spacing="8">
+
+                <Label
+                    Text="Password"
+                    FontAttributes="Bold" />
+
+                <Entry
+                    x:Name="PasswordEntry"
+                    Placeholder="Enter your password"
+                    IsPassword="True" />
+
+            </VerticalStackLayout>
+
+            <Button
+                Text="Log In"
+                BackgroundColor="#6C3BDE"
+                TextColor="White"
+                CornerRadius="12"
+                HeightRequest="50"
+                Margin="0,10,0,0"
+                Clicked="OnLoginClicked" />
+
+            <Button
+                Text="Create an Account"
+                BackgroundColor="Transparent"
+                TextColor="#6C3BDE"
+                Clicked="OnCreateAccountClicked" />
+
+            <Label
+                Text="By continuing, you agree to review how your presentation data is used."
+                FontSize="12"
+                TextColor="#777777"
+                HorizontalTextAlignment="Center"
+                Margin="10,15,10,0" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

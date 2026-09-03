@@ -1,57 +1,159 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AI_Presentation_Coach.MainPage">
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AI_Presentation_Coach.MainPage"
+    Title="Dashboard">
 
     <ScrollView>
-        <VerticalStackLayout Spacing="20" Padding="20">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition/>
-                    
-                </Grid.ColumnDefinitions>
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="20"
+            BackgroundColor="#F7F7FB">
 
-                <Grid.RowDefinitions >
-                    <RowDefinition />
-                    <RowDefinition />
+            <!-- Header -->
+            <Grid
+                ColumnDefinitions="*,Auto"
+                Padding="0,10,0,5">
 
-                </Grid.RowDefinitions>
+                <VerticalStackLayout
+                    Grid.Column="0"
+                    Spacing="3">
+
+                    <Label
+                        Text="AI Presentation Coach"
+                        FontSize="24"
+                        FontAttributes="Bold"
+                        TextColor="#171717" />
+
+                    <Label
+                        Text="Your presentation workspace"
+                        FontSize="14"
+                        TextColor="#777777" />
+
+                </VerticalStackLayout>
 
                 <Button
-                    Text="Create Presentation"
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Margin="5"
-                    Clicked="OnCreatePresentationClicked"
-                />
-
-                <Button 
-                    Text="My Presentation "
-                    Grid.Row="0"
                     Grid.Column="1"
-                    Margin="5"
-                    />
-
-                <Button 
-                    Text="Practice"
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Margin="5"
-                    Clicked="OnPracticeClicked"
-                    
-                    />
-
-                <Button
-                    Text="AI Coach"
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Margin="5"
-                    />
+                    Text="☰"
+                    FontSize="22"
+                    BackgroundColor="Transparent"
+                    TextColor="#6C3BDE"
+                    WidthRequest="50"
+                    HeightRequest="50" />
 
             </Grid>
-                
-                
+
+            <!-- Welcome -->
+            <VerticalStackLayout
+                Spacing="5">
+
+                <Label
+                    Text="Welcome back!"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    TextColor="#171717" />
+
+                <Label
+                    Text="Ready to create your next presentation?"
+                    FontSize="16"
+                    TextColor="#666666" />
+
+            </VerticalStackLayout>
+
+            <!-- Create Presentation Card -->
+            <Border
+                Padding="20"
+                StrokeThickness="0"
+                BackgroundColor="#6C3BDE"
+                StrokeShape="RoundRectangle 18">
+
+                <Grid
+                    ColumnDefinitions="*,Auto"
+                    ColumnSpacing="15">
+
+                    <VerticalStackLayout
+                        Grid.Column="0"
+                        Spacing="8">
+
+                        <Label
+                            Text="Create a Presentation"
+                            FontSize="21"
+                            FontAttributes="Bold"
+                            TextColor="White" />
+
+                        <Label
+                            Text="Build your presentation with AI-powered guidance."
+                            FontSize="14"
+                            TextColor="White" />
+
+                        <Button
+                            Text="Get Started"
+                            BackgroundColor="White"
+                            TextColor="#6C3BDE"
+                            CornerRadius="10"
+                            HorizontalOptions="Start"
+                            Padding="18,8"
+                            Clicked="OnCreatePresentationClicked" />
+
+                    </VerticalStackLayout>
+
+                </Grid>
+
+            </Border>
+
+            <!-- Quick Actions -->
+            <Label
+                Text="Quick Actions"
+                FontSize="20"
+                FontAttributes="Bold"
+                TextColor="#171717" />
+
+            <Grid
+                ColumnDefinitions="*,*"
+                RowDefinitions="Auto,Auto"
+                ColumnSpacing="12"
+                RowSpacing="12">
+
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="My Presentations"
+                    BackgroundColor="White"
+                    TextColor="#171717"
+                    CornerRadius="14"
+                    HeightRequest="80" />
+
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="Practice"
+                    BackgroundColor="White"
+                    TextColor="#171717"
+                    CornerRadius="14"
+                    HeightRequest="80"
+                    Clicked="OnPracticeClicked" />
+
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="AI Coach"
+                    BackgroundColor="White"
+                    TextColor="#171717"
+                    CornerRadius="14"
+                    HeightRequest="80" />
+
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="Settings"
+                    BackgroundColor="White"
+                    TextColor="#171717"
+                    CornerRadius="14"
+                    HeightRequest="80" />
+
+            </Grid>
 
         </VerticalStackLayout>
     </ScrollView>

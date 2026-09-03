@@ -17,11 +17,12 @@ public partial class PresentationSlidePage : ContentPage
             var slideBorder = new Border
             {
 
-                Padding = 20,
-                StrokeThickness = 20,
+                Padding = 25,
+                Margin = new Thickness(0, 5),
+                StrokeThickness = 1,
                 StrokeShape = new Microsoft.Maui.Controls.Shapes.RoundRectangle
                 {
-                    CornerRadius = 12
+                    CornerRadius = 16
                 },
                
             };
@@ -49,8 +50,8 @@ public partial class PresentationSlidePage : ContentPage
             var titleLabel = new Label
             {
                 Text = slide.Title,
-                FontSize = 20,
-                FontAttributes = FontAttributes.Bold
+                FontSize = 20
+                
             };
 
             slideLayout.Children.Add(slideNumberLabel);

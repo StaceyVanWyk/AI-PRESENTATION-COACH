@@ -4,31 +4,68 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="AI_Presentation_Coach.PresentationSlidePage"
-    Title="Presentation Slides">
+    Title="Presentation">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="20"
-            Spacing="15">
+    <Grid
+        RowDefinitions="Auto,*"
+        BackgroundColor="#F7F7FB">
 
-            <Label
-                Text="Your Presentation Slides"
-                FontSize="24"
-                FontAttributes="Bold"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Review your generated slides before presenting."
-                FontSize="14"
-                HorizontalOptions="Center"
-                HorizontalTextAlignment="Center" />
+        <!-- Header -->
+        <Grid
+            Grid.Row="0"
+            Padding="20,15"
+            BackgroundColor="White"
+            ColumnDefinitions="*,Auto">
 
             <VerticalStackLayout
-                x:Name="SlidesContainer"
-                Spacing="15"
-                />
+                Grid.Column="0"
+                Spacing="2">
 
-        </VerticalStackLayout>
-    </ScrollView>
+                <Label
+                    Text="Presentation"
+                    FontSize="22"
+                    FontAttributes="Bold"
+                    TextColor="#171717" />
+
+                <Label
+                    Text="Review your generated slides"
+                    FontSize="13"
+                    TextColor="#777777" />
+
+            </VerticalStackLayout>
+
+            <Button
+                Grid.Column="1"
+                Text="Present"
+                BackgroundColor="#6C3BDE"
+                TextColor="White"
+                CornerRadius="10"
+                Padding="18,8" />
+
+        </Grid>
+
+        <!-- Main Content -->
+        <ScrollView
+            Grid.Row="1">
+
+            <VerticalStackLayout
+                Padding="20"
+                Spacing="20">
+
+                <Label
+                    Text="Your Presentation Slides"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    TextColor="#171717" />
+
+                <VerticalStackLayout
+                    x:Name="SlidesContainer"
+                    Spacing="18" />
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+    </Grid>
 
 </ContentPage>
