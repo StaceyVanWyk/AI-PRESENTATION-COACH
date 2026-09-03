@@ -10,7 +10,7 @@ public partial class CreatePresentationPage : ContentPage
     private readonly CreatePresentationViewModel _viewModel;
     private readonly PresentationService _presentationService;
 
-    public CreatePresentationPage()
+    public CreatePresentationPage(PresentationService presentationService )
     {
         InitializeComponent();
 

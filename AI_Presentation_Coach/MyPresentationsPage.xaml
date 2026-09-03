@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AI_Presentation_Coach.MyPresentationsPage"
+    Title="My Presentations">
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="20"
+            BackgroundColor="#F7F7FB">
+
+            <!-- Header -->
+            <VerticalStackLayout Spacing="4">
+
+                <Label
+                    Text="My Presentations"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    TextColor="#171717" />
+
+                <Label
+                    Text="View and manage your presentations."
+                    FontSize="15"
+                    TextColor="#777777" />
+
+            </VerticalStackLayout>
+
+            <!-- Presentations will appear here -->
+            <VerticalStackLayout
+                x:Name="PresentationsContainer"
+                Spacing="15" />
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
