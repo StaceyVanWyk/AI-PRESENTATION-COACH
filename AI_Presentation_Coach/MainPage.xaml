@@ -124,7 +124,8 @@
                     BackgroundColor="White"
                     TextColor="#171717"
                     CornerRadius="14"
-                    HeightRequest="80" />
+                    HeightRequest="80" 
+                    Clicked="OnMyPresentationsClicked"/>
 
                 <Button
                     Grid.Row="0"
