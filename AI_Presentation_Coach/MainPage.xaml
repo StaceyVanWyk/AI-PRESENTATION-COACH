@@ -41,7 +41,8 @@
                     BackgroundColor="Transparent"
                     TextColor="#6C3BDE"
                     WidthRequest="50"
-                    HeightRequest="50" />
+                    HeightRequest="50" 
+                    Clicked="OnMyPresentationsClicked"/>
 
             </Grid>
 
