@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿
+using AI_Presentation_Coach.Services;
+using Microsoft.Extensions.Logging;
 
 namespace AI_Presentation_Coach
 {
@@ -13,7 +15,9 @@ namespace AI_Presentation_Coach
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+
                 });
+            builder.Services.AddSingleton<PresentationService>();
 
 #if DEBUG
     		builder.Logging.AddDebug();
