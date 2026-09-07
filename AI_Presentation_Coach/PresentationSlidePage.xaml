@@ -4,63 +4,223 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="AI_Presentation_Coach.PresentationSlidePage"
-    Title="Presentation">
+    Title="Presentation"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#F7F7FB">
 
     <Grid
-        RowDefinitions="Auto,*"
-        BackgroundColor="#F7F7FB">
+        RowDefinitions="Auto,*">
 
         <!-- Header -->
         <Grid
             Grid.Row="0"
-            Padding="20,15"
+            Padding="20,16"
             BackgroundColor="White"
-            ColumnDefinitions="*,Auto">
+            ColumnDefinitions="Auto,*,Auto">
 
-            <VerticalStackLayout
+            <!-- Back -->
+            <Button
                 Grid.Column="0"
+                Text="‹"
+                FontSize="32"
+                BackgroundColor="Transparent"
+                TextColor="#171717"
+                WidthRequest="45"
+                HeightRequest="45"
+                Padding="0"
+                Clicked="OnBackClicked"/>
+
+            <!-- Title -->
+            <VerticalStackLayout
+                Grid.Column="1"
+                VerticalOptions="Center"
                 Spacing="2">
 
                 <Label
                     Text="Presentation"
-                    FontSize="22"
+                    FontSize="21"
                     FontAttributes="Bold"
                     TextColor="#171717" />
 
                 <Label
-                    Text="Review your generated slides"
-                    FontSize="13"
+                    Text="Your presentation workspace"
+                    FontSize="12"
                     TextColor="#777777" />
 
             </VerticalStackLayout>
 
+            <!-- Present -->
             <Button
-                Grid.Column="1"
-                Text="Present"
+                Grid.Column="2"
+                Text="Present  ▶"
+                FontSize="13"
+                FontAttributes="Bold"
                 BackgroundColor="#6C3BDE"
                 TextColor="White"
-                CornerRadius="10"
-                Padding="18,8" />
+                CornerRadius="11"
+                Padding="16,8"
+                Clicked="OnPresentClicked"/>
 
         </Grid>
+
 
         <!-- Main Content -->
         <ScrollView
             Grid.Row="1">
 
             <VerticalStackLayout
-                Padding="20"
+                Padding="20,24,20,35"
                 Spacing="20">
 
-                <Label
-                    Text="Your Presentation Slides"
-                    FontSize="20"
-                    FontAttributes="Bold"
-                    TextColor="#171717" />
+                <!-- Page introduction -->
+                <VerticalStackLayout
+                    Spacing="5">
 
+                    <Label
+                        Text="Your Presentation"
+                        FontSize="25"
+                        FontAttributes="Bold"
+                        TextColor="#171717" />
+
+                    <Label
+                        Text="Review your slides and get ready to present."
+                        FontSize="14"
+                        TextColor="#777777" />
+
+                </VerticalStackLayout>
+
+
+                <!-- Slide count / status -->
+                <Grid
+                    ColumnDefinitions="*,Auto">
+
+                    <VerticalStackLayout
+                        Grid.Column="0"
+                        Spacing="3">
+
+                        <Label
+                            Text="Generated slides"
+                            FontSize="13"
+                            FontAttributes="Bold"
+                            TextColor="#555555" />
+
+                        <Label
+                            Text="Your presentation structure is ready."
+                            FontSize="12"
+                            TextColor="#888888" />
+
+                    </VerticalStackLayout>
+
+                    <Border
+                        Grid.Column="1"
+                        Padding="12,7"
+                        BackgroundColor="#F0EBFF"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 10">
+
+                        <Label
+                            Text="AI Generated"
+                            FontSize="11"
+                            FontAttributes="Bold"
+                            TextColor="#6C3BDE" />
+
+                    </Border>
+
+                </Grid>
+
+
+                <!-- Slides -->
                 <VerticalStackLayout
                     x:Name="SlidesContainer"
                     Spacing="18" />
+
+
+                <!-- AI Coach Card -->
+                <Border
+                    Padding="18"
+                    BackgroundColor="#F0EBFF"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 18">
+
+                    <HorizontalStackLayout
+                        Spacing="12">
+
+                        <Border
+                            WidthRequest="44"
+                            HeightRequest="44"
+                            BackgroundColor="#6C3BDE"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 13">
+
+                            <Label
+                                Text="✦"
+                                FontSize="22"
+                                TextColor="White"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center" />
+
+                        </Border>
+
+                        <VerticalStackLayout
+                            VerticalOptions="Center"
+                            Spacing="3">
+
+                            <Label
+                                Text="Want to improve your presentation?"
+                                FontSize="14"
+                                FontAttributes="Bold"
+                                TextColor="#3D237D" />
+
+                            <Label
+                                Text="Use AI Coach to strengthen your message and delivery."
+                                FontSize="12"
+                                TextColor="#6F5A99"
+                                LineBreakMode="WordWrap" />
+
+                        </VerticalStackLayout>
+
+                    </HorizontalStackLayout>
+
+                </Border>
+
+
+                <!-- Ready to Present -->
+                <Border
+                    Padding="20"
+                    BackgroundColor="White"
+                    Stroke="#E5E5EA"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 18">
+
+                    <VerticalStackLayout
+                        Spacing="10">
+
+                        <Label
+                            Text="Ready to present?"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            TextColor="#171717" />
+
+                        <Label
+                            Text="When you're ready, enter presentation mode and focus on your audience."
+                            FontSize="13"
+                            TextColor="#777777"
+                            LineBreakMode="WordWrap" />
+
+                        <Button
+                            Text="Start Presenting  →"
+                            FontSize="15"
+                            FontAttributes="Bold"
+                            BackgroundColor="#171717"
+                            TextColor="White"
+                            CornerRadius="11"
+                            HeightRequest="48"
+                            Margin="0,5,0,0" 
+                            Clicked="OnStartPresentingClicked"/>
+
+                    </VerticalStackLayout>
+
+                </Border>
 
             </VerticalStackLayout>
 

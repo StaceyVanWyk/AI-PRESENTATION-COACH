@@ -1,158 +1,382 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AI_Presentation_Coach.PresentationOutlinePage"
-             Title="Presentation Outline">
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AI_Presentation_Coach.PresentationOutlinePage"
+    Title="Presentation Outline"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#F7F7FB">
 
-    <ScrollView>
+    <Grid RowDefinitions="Auto,*">
 
-        <VerticalStackLayout
-            Spacing="15"
-            Padding="20">
+        <!-- Header -->
+        <Grid
+            Grid.Row="0"
+            Padding="20,16"
+            BackgroundColor="White"
+            ColumnDefinitions="Auto,*">
 
-            <!-- Page Heading -->
-            <Label
-                Text="Your Presentation Outline"
-                FontSize="24"
-                FontAttributes="Bold"
-                HorizontalOptions="Center" />
+            <Button
+                Grid.Column="0"
+                Text="‹"
+                FontSize="32"
+                BackgroundColor="Transparent"
+                TextColor="#171717"
+                WidthRequest="45"
+                HeightRequest="45"
+                Padding="0"
+                Clicked="OnBackClicked" />
 
-            <!-- Presentation Information -->
+            <VerticalStackLayout
+                Grid.Column="1"
+                VerticalOptions="Center"
+                Spacing="2">
 
-            <Label
-                x:Name="PresentationTitleLabel"
-                Text=""
-                FontSize="20"
-                FontAttributes="Bold" />
+                <Label
+                    Text="Presentation Outline"
+                    FontSize="21"
+                    FontAttributes="Bold"
+                    TextColor="#171717" />
 
-            <Label
-                x:Name="PresentationTopicLabel"
-                Text=""
-                FontSize="16" />
+                <Label
+                    Text="Shape your ideas before creating your slides"
+                    FontSize="12"
+                    TextColor="#777777" />
 
-            <Label
-                x:Name="AudienceLabel"
-                Text=""
-                FontSize="14" />
+            </VerticalStackLayout>
 
-            <Label
-                x:Name="PresentationTypeLabel"
-                Text=""
-                FontSize="14" />
+        </Grid>
 
-            <!-- Description -->
 
-            <Label
-                Text="AI-generated outline based on your presentation details."
-                FontSize="14"
-                Margin="0,5,0,5" />
+        <!-- Main Content -->
+        <ScrollView Grid.Row="1">
 
-            <!-- Introduction -->
+            <VerticalStackLayout
+                Padding="20,24,20,35"
+                Spacing="18">
 
-            <Frame
-                Padding="15"
-                CornerRadius="12">
-
-                <VerticalStackLayout
-                    Spacing="5">
+                <VerticalStackLayout Spacing="5">
 
                     <Label
-                        Text="1. Introduction"
-                        FontSize="18"
+                        Text="Your presentation story"
+                        FontSize="26"
                         FontAttributes="Bold"
-                         />
-
-                    <Editor
-                    x:Name="IntroductionEditor"
-                    Text=""
-                    FontSize="14" />
-
-                </VerticalStackLayout>
-
-            </Frame>
-
-            <!-- Problem -->
-
-            <Frame
-                Padding="15"
-                CornerRadius="12">
-
-                <VerticalStackLayout
-                    Spacing="5">
+                        TextColor="#171717" />
 
                     <Label
-                        Text="2. The Problem"
-                        FontSize="18"
-                        FontAttributes="Bold" />
-
-                    <Editor
-                        x:Name="ProblemEditor"
-                        Text=""
-                        FontSize="14" />
-                        
-                </VerticalStackLayout>
-
-            </Frame>
-
-            <!-- Solution -->
-
-            <Frame
-                Padding="15"
-                CornerRadius="12">
-
-                <VerticalStackLayout
-                    Spacing="5">
-
-                    <Label
-                        Text="3. The Solution"
-                        FontSize="18"
-                        FontAttributes="Bold" />
-
-                    <Editor
-                        x:Name="SolutionEditor"
-                        Text=""
-                        FontSize="14" />    
+                        Text="Review the AI-generated structure and make it your own."
+                        FontSize="14"
+                        TextColor="#777777" />
 
                 </VerticalStackLayout>
 
-            </Frame>
 
-            <!-- Conclusion -->
+                <!-- Presentation Details -->
+                <Border
+                    Padding="18"
+                    BackgroundColor="White"
+                    Stroke="#E5E5EA"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 18">
 
-            <Frame
-                Padding="15"
-                CornerRadius="12">
+                    <VerticalStackLayout Spacing="10">
 
-                <VerticalStackLayout
-                    Spacing="5">
+                        <Label
+                            Text="Presentation details"
+                            FontSize="16"
+                            FontAttributes="Bold"
+                            TextColor="#333333" />
 
-                    <Label
-                        Text="4. Conclusion"
-                        FontSize="18"
-                        FontAttributes="Bold" />
+                        <Label
+                            x:Name="PresentationTitleLabel"
+                            FontSize="21"
+                            FontAttributes="Bold"
+                            TextColor="#171717" />
 
-                    <Editor
-                        x:Name="ConclusionEditor"
-                        Text=""
-                        FontSize="14" />
+                        <Label
+                            x:Name="PresentationTopicLabel"
+                            FontSize="14"
+                            TextColor="#666666" />
+
+                        <Grid
+                            ColumnDefinitions="*,*"
+                            ColumnSpacing="10">
+
+                            <Border
+                                Grid.Column="0"
+                                Padding="12"
+                                BackgroundColor="#F7F7FB"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 12">
+
+                                <VerticalStackLayout Spacing="3">
+
+                                    <Label
+                                        Text="Audience"
+                                        FontSize="11"
+                                        TextColor="#888888" />
+
+                                    <Label
+                                        x:Name="AudienceLabel"
+                                        FontSize="13"
+                                        FontAttributes="Bold"
+                                        TextColor="#333333" />
+
+                                </VerticalStackLayout>
+
+                            </Border>
+
+                            <Border
+                                Grid.Column="1"
+                                Padding="12"
+                                BackgroundColor="#F7F7FB"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 12">
+
+                                <VerticalStackLayout Spacing="3">
+
+                                    <Label
+                                        Text="Type"
+                                        FontSize="11"
+                                        TextColor="#888888" />
+
+                                    <Label
+                                        x:Name="PresentationTypeLabel"
+                                        FontSize="13"
+                                        FontAttributes="Bold"
+                                        TextColor="#333333" />
+
+                                </VerticalStackLayout>
+
+                            </Border>
+
+                        </Grid>
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <!-- AI Message -->
+                <Border
+                    Padding="18"
+                    BackgroundColor="#F0EBFF"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 18">
+
+                    <HorizontalStackLayout Spacing="12">
+
+                        <Border
+                            WidthRequest="42"
+                            HeightRequest="42"
+                            BackgroundColor="#6C3BDE"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 12">
+
+                            <Label
+                                Text="✦"
+                                FontSize="21"
+                                TextColor="White"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center" />
+
+                        </Border>
+
+                        <VerticalStackLayout
+                            VerticalOptions="Center"
+                            Spacing="3">
+
+                            <Label
+                                Text="Your AI starting point"
+                                FontSize="14"
+                                FontAttributes="Bold"
+                                TextColor="#3D237D" />
+
+                            <Label
+                                Text="Edit the sections below to make the presentation sound like you."
+                                FontSize="12"
+                                TextColor="#6F5A99"
+                                LineBreakMode="WordWrap" />
+
+                        </VerticalStackLayout>
+
+                    </HorizontalStackLayout>
+
+                </Border>
+
+
+                <!-- Introduction -->
+                <Border
+                    Padding="18"
+                    BackgroundColor="White"
+                    Stroke="#E5E5EA"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 18">
+
+                    <VerticalStackLayout Spacing="10">
+
+                        <Label
+                            Text="01  Introduction"
+                            FontSize="17"
+                            FontAttributes="Bold"
+                            TextColor="#171717" />
+
+                        <Label
+                            Text="How will you introduce your topic?"
+                            FontSize="12"
+                            TextColor="#888888" />
+
+                        <Editor
+                            x:Name="IntroductionEditor"
+                            FontSize="14"
+                            TextColor="#333333"
+                            BackgroundColor="#F7F7FB"
+                            MinimumHeightRequest="110" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <!-- Problem -->
+                <Border
+                    Padding="18"
+                    BackgroundColor="White"
+                    Stroke="#E5E5EA"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 18">
+
+                    <VerticalStackLayout Spacing="10">
+
+                        <Label
+                            Text="02  The Problem"
+                            FontSize="17"
+                            FontAttributes="Bold"
+                            TextColor="#171717" />
+
+                        <Label
+                            Text="What challenge are you addressing?"
+                            FontSize="12"
+                            TextColor="#888888" />
+
+                        <Editor
+                            x:Name="ProblemEditor"
+                            FontSize="14"
+                            TextColor="#333333"
+                            BackgroundColor="#F7F7FB"
+                            MinimumHeightRequest="110" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <!-- Solution -->
+                <Border
+                    Padding="18"
+                    BackgroundColor="White"
+                    Stroke="#E5E5EA"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 18">
+
+                    <VerticalStackLayout Spacing="10">
+
+                        <Label
+                            Text="03  The Solution"
+                            FontSize="17"
+                            FontAttributes="Bold"
+                            TextColor="#171717" />
+
+                        <Label
+                            Text="What is your proposed solution?"
+                            FontSize="12"
+                            TextColor="#888888" />
+
+                        <Editor
+                            x:Name="SolutionEditor"
+                            FontSize="14"
+                            TextColor="#333333"
+                            BackgroundColor="#F7F7FB"
+                            MinimumHeightRequest="110" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <!-- Conclusion -->
+                <Border
+                    Padding="18"
+                    BackgroundColor="White"
+                    Stroke="#E5E5EA"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 18">
+
+                    <VerticalStackLayout Spacing="10">
+
+                        <Label
+                            Text="04  Conclusion"
+                            FontSize="17"
+                            FontAttributes="Bold"
+                            TextColor="#171717" />
+
+                        <Label
+                            Text="How will you finish with impact?"
+                            FontSize="12"
+                            TextColor="#888888" />
+
+                        <Editor
+                            x:Name="ConclusionEditor"
+                            FontSize="14"
+                            TextColor="#333333"
+                            BackgroundColor="#F7F7FB"
+                            MinimumHeightRequest="110" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <!-- Actions -->
+                <VerticalStackLayout Spacing="10">
+
+                    <Button
+                        Text="Save Outline"
+                        FontSize="15"
+                        FontAttributes="Bold"
+                        BackgroundColor="White"
+                        TextColor="#6C3BDE"
+                        BorderColor="#6C3BDE"
+                        BorderWidth="1"
+                        CornerRadius="12"
+                        HeightRequest="50"
+                        Clicked="OnSaveOutlineClicked" />
+
+                    <Button
+                        Text="Generate My Slides  →"
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        BackgroundColor="#6C3BDE"
+                        TextColor="White"
+                        CornerRadius="13"
+                        HeightRequest="54"
+                        Clicked="OnGenerateSlidesClicked" />
 
                 </VerticalStackLayout>
 
-            </Frame>
 
-            <!-- Actions -->
+                <Label
+                    Text="AI suggestions are a starting point. Your voice makes the presentation yours."
+                    FontSize="12"
+                    TextColor="#888888"
+                    HorizontalTextAlignment="Center"
+                    Margin="15,0" />
 
-            <Button
-                Text="Save Outline"
-                Clicked="OnSaveOutlineClicked" />
+            </VerticalStackLayout>
 
-            <Button
-                Text="Generate Slides"
-                Clicked="OnGenerateSlidesClicked" />
+        </ScrollView>
 
-        </VerticalStackLayout>
-
-    </ScrollView>
+    </Grid>
 
 </ContentPage>

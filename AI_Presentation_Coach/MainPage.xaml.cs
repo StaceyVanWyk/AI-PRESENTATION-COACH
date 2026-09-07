@@ -10,22 +10,12 @@ namespace AI_Presentation_Coach
             InitializeComponent();
         }
 
-        private async void OnCounterClicked(object? sender, EventArgs e)
-        {
-            await Shell.Current.GoToAsync("///PresentationPage"); //// 
-        }
-
         private async void OnCreatePresentationClicked(object? sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("///CreatePresentationPage");
         }
-         
-        private async void OnPracticeClicked(object? sender, EventArgs e)
-        {
-            await Shell.Current.GoToAsync("///PracticePage");
-        }
 
-        private async void OnMyPresentationsClicked(object? sender, EventArgs e)
+        private async void OnMyPresentationsTapped(object? sender, TappedEventArgs e)
         {
             var presentationService =
                 Application.Current?
@@ -46,6 +36,16 @@ namespace AI_Presentation_Coach
 
             await Navigation.PushAsync(
                 new MyPresentationsPage(presentationService));
+        }
+
+        private async void OnPracticeTapped(object? sender, TappedEventArgs e)
+        {
+            await Shell.Current.GoToAsync("///PracticePage");
+        }
+
+        private async void OnAICoachTapped(object? sender, TappedEventArgs e)
+        {
+            await Navigation.PushAsync(new AICoachPage());
         }
     }
 }

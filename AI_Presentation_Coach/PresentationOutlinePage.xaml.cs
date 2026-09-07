@@ -26,6 +26,11 @@ public partial class PresentationOutlinePage : ContentPage
         ConclusionEditor.Text = _viewModel.Outline.Conclusion;
     }
 
+    private async void OnBackClicked(object? sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
+
     private async void OnSaveOutlineClicked(object? sender, EventArgs e)
     {
         _viewModel.SaveOutline(
@@ -43,13 +48,11 @@ public partial class PresentationOutlinePage : ContentPage
     }
 
     private async void OnGenerateSlidesClicked(object? sender, EventArgs e)
-    { 
+    {
         _viewModel.GenerateSlides();
 
         await Navigation.PushAsync(
-            new PresentationSlidePage(_viewModel.Slides));
-        
-            
-        
+            new PresentationSlidePage(_viewModel.Slides)
+        );
     }
 }

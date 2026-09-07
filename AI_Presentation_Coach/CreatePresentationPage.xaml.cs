@@ -91,4 +91,8 @@ public partial class CreatePresentationPage : ContentPage
         await Navigation.PushAsync(
             new PresentationOutlinePage(presentation));
     }
+    private async void OnBackClicked(object? sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
 }

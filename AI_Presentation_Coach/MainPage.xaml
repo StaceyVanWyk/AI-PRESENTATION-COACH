@@ -4,160 +4,317 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="AI_Presentation_Coach.MainPage"
-    Title="Dashboard">
+    Title="Dashboard"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#F7F7FB">
 
     <ScrollView>
-        <VerticalStackLayout
-            Padding="20"
-            Spacing="20"
-            BackgroundColor="#F7F7FB">
 
-            <!-- Header -->
+        <VerticalStackLayout
+            Padding="24,35,24,30"
+            Spacing="24">
+
+            <!-- Top Header -->
             <Grid
-                ColumnDefinitions="*,Auto"
-                Padding="0,10,0,5">
+                ColumnDefinitions="*,Auto">
 
                 <VerticalStackLayout
                     Grid.Column="0"
                     Spacing="3">
 
                     <Label
-                        Text="AI Presentation Coach"
-                        FontSize="24"
-                        FontAttributes="Bold"
-                        TextColor="#171717" />
-
-                    <Label
-                        Text="Your presentation workspace"
+                        Text="Good morning 👋"
                         FontSize="14"
                         TextColor="#777777" />
 
+                    <Label
+                        Text="Ready to present?"
+                        FontSize="28"
+                        FontAttributes="Bold"
+                        TextColor="#171717" />
+
                 </VerticalStackLayout>
 
-                <Button
+                <Border
                     Grid.Column="1"
-                    Text="☰"
-                    FontSize="22"
-                    BackgroundColor="Transparent"
-                    TextColor="#6C3BDE"
-                    WidthRequest="50"
-                    HeightRequest="50" 
-                    Clicked="OnMyPresentationsClicked"/>
+                    WidthRequest="48"
+                    HeightRequest="48"
+                    BackgroundColor="White"
+                    Stroke="#E5E5EA"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 14">
+
+                    <Label
+                        Text="☰"
+                        FontSize="22"
+                        TextColor="#6C3BDE"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center" />
+
+                </Border>
 
             </Grid>
 
-            <!-- Welcome -->
-            <VerticalStackLayout
-                Spacing="5">
 
-                <Label
-                    Text="Welcome back!"
-                    FontSize="28"
-                    FontAttributes="Bold"
-                    TextColor="#171717" />
-
-                <Label
-                    Text="Ready to create your next presentation?"
-                    FontSize="16"
-                    TextColor="#666666" />
-
-            </VerticalStackLayout>
-
-            <!-- Create Presentation Card -->
+            <!-- Main AI Card -->
             <Border
-                Padding="20"
-                StrokeThickness="0"
+                Padding="22"
                 BackgroundColor="#6C3BDE"
-                StrokeShape="RoundRectangle 18">
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 22">
 
-                <Grid
-                    ColumnDefinitions="*,Auto"
-                    ColumnSpacing="15">
+                <VerticalStackLayout
+                    Spacing="12">
 
-                    <VerticalStackLayout
-                        Grid.Column="0"
-                        Spacing="8">
+                    <Label
+                        Text="✨ AI Presentation Coach"
+                        FontSize="14"
+                        FontAttributes="Bold"
+                        TextColor="#EDE5FF" />
 
-                        <Label
-                            Text="Create a Presentation"
-                            FontSize="21"
-                            FontAttributes="Bold"
-                            TextColor="White" />
+                    <Label
+                        Text="Turn your ideas into a presentation that stands out."
+                        FontSize="23"
+                        FontAttributes="Bold"
+                        TextColor="White"
+                        LineBreakMode="WordWrap" />
 
-                        <Label
-                            Text="Build your presentation with AI-powered guidance."
-                            FontSize="14"
-                            TextColor="White" />
+                    <Label
+                        Text="Create your structure, improve your message and practise with confidence."
+                        FontSize="14"
+                        TextColor="#F0EAFE"
+                        LineBreakMode="WordWrap" />
 
-                        <Button
-                            Text="Get Started"
-                            BackgroundColor="White"
-                            TextColor="#6C3BDE"
-                            CornerRadius="10"
-                            HorizontalOptions="Start"
-                            Padding="18,8"
-                            Clicked="OnCreatePresentationClicked" />
+                    <Button
+                        Text="Create Presentation  →"
+                        FontSize="15"
+                        FontAttributes="Bold"
+                        BackgroundColor="White"
+                        TextColor="#6C3BDE"
+                        CornerRadius="12"
+                        HeightRequest="50"
+                        Margin="0,8,0,0"
+                        HorizontalOptions="Fill"
+                        Clicked="OnCreatePresentationClicked" />
 
-                    </VerticalStackLayout>
-
-                </Grid>
+                </VerticalStackLayout>
 
             </Border>
 
+
             <!-- Quick Actions -->
+            <VerticalStackLayout
+                Spacing="12">
+
+                <Label
+                    Text="Your Workspace"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    TextColor="#171717" />
+
+                <Grid
+                    ColumnDefinitions="*,*"
+                    RowDefinitions="Auto,Auto"
+                    ColumnSpacing="12"
+                    RowSpacing="12">
+
+                    <!-- My Presentations -->
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Padding="16"
+                        BackgroundColor="White"
+                        Stroke="#E5E5EA"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 18">
+
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="OnMyPresentationsTapped" />
+                        </Border.GestureRecognizers>
+
+                        <VerticalStackLayout
+                            Spacing="10">
+
+                            <Label
+                                Text="📂"
+                                FontSize="25" />
+
+                            <Label
+                                Text="My Presentations"
+                                FontSize="15"
+                                FontAttributes="Bold"
+                                TextColor="#171717" />
+
+                            <Label
+                                Text="View your work"
+                                FontSize="12"
+                                TextColor="#777777" />
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+
+                    <!-- Practice -->
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Padding="16"
+                        BackgroundColor="White"
+                        Stroke="#E5E5EA"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 18">
+
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="OnPracticeTapped" />
+                        </Border.GestureRecognizers>
+
+                        <VerticalStackLayout
+                            Spacing="10">
+
+                            <Label
+                                Text="🎤"
+                                FontSize="25" />
+
+                            <Label
+                                Text="Practice"
+                                FontSize="15"
+                                FontAttributes="Bold"
+                                TextColor="#171717" />
+
+                            <Label
+                                Text="Build confidence"
+                                FontSize="12"
+                                TextColor="#777777" />
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+
+                    <!-- AI Coach -->
+                    <Border
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Padding="16"
+                        BackgroundColor="White"
+                        Stroke="#E5E5EA"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 18">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer
+        Tapped="OnAICoachTapped" />
+                        </Border.GestureRecognizers>
+
+                        <VerticalStackLayout
+                            Spacing="10">
+
+                            <Label
+                                Text="✨"
+                                FontSize="25" />
+
+                            <Label
+                                Text="AI Coach"
+                                FontSize="15"
+                                FontAttributes="Bold"
+                                TextColor="#171717" />
+
+                            <Label
+                                Text="Improve your message"
+                                FontSize="12"
+                                TextColor="#777777" />
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+
+                    <!-- Settings -->
+                    <Border
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Padding="16"
+                        BackgroundColor="White"
+                        Stroke="#E5E5EA"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 18">
+
+                        <VerticalStackLayout
+                            Spacing="10">
+
+                            <Label
+                                Text="⚙️"
+                                FontSize="25" />
+
+                            <Label
+                                Text="Settings"
+                                FontSize="15"
+                                FontAttributes="Bold"
+                                TextColor="#171717" />
+
+                            <Label
+                                Text="Manage your app"
+                                FontSize="12"
+                                TextColor="#777777" />
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                </Grid>
+
+            </VerticalStackLayout>
+
+
+            <!-- Responsible AI Section -->
+            <Border
+                Padding="18"
+                BackgroundColor="#F0EBFF"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 18">
+
+                <HorizontalStackLayout
+                    Spacing="12">
+
+                    <Label
+                        Text="🛡️"
+                        FontSize="23"
+                        VerticalOptions="Start" />
+
+                    <VerticalStackLayout
+                        Spacing="4">
+
+                        <Label
+                            Text="Your ideas. Your voice."
+                            FontSize="15"
+                            FontAttributes="Bold"
+                            TextColor="#3D237D" />
+
+                        <Label
+                            Text="AI suggestions support your creativity while keeping you in control."
+                            FontSize="12"
+                            TextColor="#5F4B8B"
+                            LineBreakMode="WordWrap" />
+
+                    </VerticalStackLayout>
+
+                </HorizontalStackLayout>
+
+            </Border>
+
+
+            <!-- Bottom Branding -->
             <Label
-                Text="Quick Actions"
-                FontSize="20"
-                FontAttributes="Bold"
-                TextColor="#171717" />
-
-            <Grid
-                ColumnDefinitions="*,*"
-                RowDefinitions="Auto,Auto"
-                ColumnSpacing="12"
-                RowSpacing="12">
-
-                <Button
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Text="My Presentations"
-                    BackgroundColor="White"
-                    TextColor="#171717"
-                    CornerRadius="14"
-                    HeightRequest="80" 
-                    Clicked="OnMyPresentationsClicked"/>
-
-                <Button
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Text="Practice"
-                    BackgroundColor="White"
-                    TextColor="#171717"
-                    CornerRadius="14"
-                    HeightRequest="80"
-                    Clicked="OnPracticeClicked" />
-
-                <Button
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Text="AI Coach"
-                    BackgroundColor="White"
-                    TextColor="#171717"
-                    CornerRadius="14"
-                    HeightRequest="80" />
-
-                <Button
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Text="Settings"
-                    BackgroundColor="White"
-                    TextColor="#171717"
-                    CornerRadius="14"
-                    HeightRequest="80" />
-
-            </Grid>
+                Text="AI Presentation Coach"
+                FontSize="12"
+                TextColor="#AAAAAA"
+                HorizontalOptions="Center"
+                Margin="0,0,0,10" />
 
         </VerticalStackLayout>
+
     </ScrollView>
 
 </ContentPage>

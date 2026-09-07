@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="AI_Presentation_Coach.AICoachPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="AI Coach"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#F7F7FB">
+
+    <Grid
+        RowDefinitions="Auto,*">
+
+        <!-- HEADER -->
+        <Grid
+            Grid.Row="0"
+            Padding="20,16"
+            BackgroundColor="White"
+            ColumnDefinitions="Auto,*,Auto">
+
+            <!-- Back -->
+            <Button
+                Grid.Column="0"
+                Text="‹"
+                FontSize="32"
+                BackgroundColor="Transparent"
+                TextColor="#171717"
+                WidthRequest="45"
+                HeightRequest="45"
+                Padding="0"
+                Clicked="OnBackClicked" />
+
+            <!-- Title -->
+            <VerticalStackLayout
+                Grid.Column="1"
+                VerticalOptions="Center"
+                Spacing="2">
+
+                <Label
+                    Text="AI Coach"
+                    FontSize="21"
+                    FontAttributes="Bold"
+                    TextColor="#171717" />
+
+                <Label
+                    Text="Your presentation, improved"
+                    FontSize="12"
+                    TextColor="#777777" />
+
+            </VerticalStackLayout>
+
+            <!-- AI badge -->
+            <Border
+                Grid.Column="2"
+                Padding="12,7"
+                BackgroundColor="#F0EBFF"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 10"
+                VerticalOptions="Center">
+
+                <Label
+                    Text="AI"
+                    FontSize="11"
+                    FontAttributes="Bold"
+                    TextColor="#6C3BDE" />
+
+            </Border>
+
+        </Grid>
+
+
+        <!-- MAIN CONTENT -->
+        <ScrollView
+            Grid.Row="1">
+
+            <VerticalStackLayout
+                Padding="20,24,20,35"
+                Spacing="20">
+
+                <!-- INTRO -->
+                <VerticalStackLayout
+                    Spacing="5">
+
+                    <Label
+                        Text="Get presentation feedback"
+                        FontSize="25"
+                        FontAttributes="Bold"
+                        TextColor="#171717" />
+
+                    <Label
+                        Text="AI Coach helps you understand what is working and where you can improve."
+                        FontSize="14"
+                        TextColor="#777777"
+                        LineBreakMode="WordWrap" />
+
+                </VerticalStackLayout>
+
+
+                <!-- HERO -->
+                <Border
+                    Padding="24"
+                    BackgroundColor="#6C3BDE"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 20">
+
+                    <VerticalStackLayout
+                        Spacing="14">
+
+                        <Border
+                            WidthRequest="58"
+                            HeightRequest="58"
+                            BackgroundColor="#8158E5"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 17">
+
+                            <Label
+                                Text="✦"
+                                FontSize="30"
+                                TextColor="White"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center" />
+
+                        </Border>
+
+                        <Label
+                            Text="Your AI Presentation Coach"
+                            FontSize="23"
+                            FontAttributes="Bold"
+                            TextColor="White" />
+
+                        <Label
+                            Text="Practise your presentation and receive personalised feedback on your content and delivery."
+                            FontSize="14"
+                            TextColor="#E9E1FF"
+                            LineBreakMode="WordWrap" />
+
+                        <Button
+                            Text="Analyse My Presentation  →"
+                            FontSize="15"
+                            FontAttributes="Bold"
+                            BackgroundColor="White"
+                            TextColor="#6C3BDE"
+                            CornerRadius="11"
+                            HeightRequest="48"
+                            Margin="0,5,0,0"
+                            Clicked="OnAnalyseClicked" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <!-- OVERALL SCORE -->
+                <Border
+                    Padding="20"
+                    BackgroundColor="White"
+                    Stroke="#E5E5EA"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 18">
+
+                    <VerticalStackLayout
+                        Spacing="12">
+
+                        <Grid
+                            ColumnDefinitions="*,Auto">
+
+                            <VerticalStackLayout
+                                Grid.Column="0"
+                                Spacing="3">
+
+                                <Label
+                                    Text="Overall feedback"
+                                    FontSize="17"
+                                    FontAttributes="Bold"
+                                    TextColor="#171717" />
+
+                                <Label
+                                    Text="Complete a practice session to receive your score."
+                                    FontSize="12"
+                                    TextColor="#777777"
+                                    LineBreakMode="WordWrap" />
+
+                            </VerticalStackLayout>
+
+                            <Label
+                                Grid.Column="1"
+                                Text="--"
+                                FontSize="28"
+                                FontAttributes="Bold"
+                                TextColor="#6C3BDE"
+                                VerticalOptions="Center" />
+
+                        </Grid>
+
+                        <!-- Progress -->
+                        <ProgressBar
+                            Progress="0"
+                            ProgressColor="#6C3BDE"
+                            BackgroundColor="#EDEAF4"
+                            HeightRequest="7" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <!-- FEEDBACK AREAS -->
+                <VerticalStackLayout
+                    Spacing="12">
+
+                    <Label
+                        Text="What AI Coach looks at"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="#171717" />
+
+
+                    <!-- Delivery -->
+                    <Border
+                        Padding="16"
+                        BackgroundColor="White"
+                        Stroke="#E5E5EA"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 16">
+
+                        <Grid
+                            ColumnDefinitions="Auto,*,Auto"
+                            ColumnSpacing="14">
+
+                            <Border
+                                Grid.Column="0"
+                                WidthRequest="42"
+                                HeightRequest="42"
+                                BackgroundColor="#F0EBFF"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 12">
+
+                                <Label
+                                    Text="🎤"
+                                    FontSize="20"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center" />
+
+                            </Border>
+
+                            <VerticalStackLayout
+                                Grid.Column="1"
+                                VerticalOptions="Center"
+                                Spacing="2">
+
+                                <Label
+                                    Text="Delivery"
+                                    FontSize="14"
+                                    FontAttributes="Bold"
+                                    TextColor="#171717" />
+
+                                <Label
+                                    Text="Clarity, pace and speaking style."
+                                    FontSize="12"
+                                    TextColor="#777777" />
+
+                            </VerticalStackLayout>
+
+                            <Label
+                                Grid.Column="2"
+                                Text="--"
+                                FontSize="14"
+                                FontAttributes="Bold"
+                                TextColor="#6C3BDE"
+                                VerticalOptions="Center" />
+
+                        </Grid>
+
+                    </Border>
+
+
+                    <!-- Content -->
+                    <Border
+                        Padding="16"
+                        BackgroundColor="White"
+                        Stroke="#E5E5EA"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 16">
+
+                        <Grid
+                            ColumnDefinitions="Auto,*,Auto"
+                            ColumnSpacing="14">
+
+                            <Border
+                                Grid.Column="0"
+                                WidthRequest="42"
+                                HeightRequest="42"
+                                BackgroundColor="#F0EBFF"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 12">
+
+                                <Label
+                                    Text="💡"
+                                    FontSize="20"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center" />
+
+                            </Border>
+
+                            <VerticalStackLayout
+                                Grid.Column="1"
+                                VerticalOptions="Center"
+                                Spacing="2">
+
+                                <Label
+                                    Text="Content"
+                                    FontSize="14"
+                                    FontAttributes="Bold"
+                                    TextColor="#171717" />
+
+                                <Label
+                                    Text="Structure, clarity and message strength."
+                                    FontSize="12"
+                                    TextColor="#777777" />
+
+                            </VerticalStackLayout>
+
+                            <Label
+                                Grid.Column="2"
+                                Text="--"
+                                FontSize="14"
+                                FontAttributes="Bold"
+                                TextColor="#6C3BDE"
+                                VerticalOptions="Center" />
+
+                        </Grid>
+
+                    </Border>
+
+
+                    <!-- Timing -->
+                    <Border
+                        Padding="16"
+                        BackgroundColor="White"
+                        Stroke="#E5E5EA"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 16">
+
+                        <Grid
+                            ColumnDefinitions="Auto,*,Auto"
+                            ColumnSpacing="14">
+
+                            <Border
+                                Grid.Column="0"
+                                WidthRequest="42"
+                                HeightRequest="42"
+                                BackgroundColor="#F0EBFF"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 12">
+
+                                <Label
+                                    Text="⏱"
+                                    FontSize="20"
+                                    TextColor="#6C3BDE"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center" />
+
+                            </Border>
+
+                            <VerticalStackLayout
+                                Grid.Column="1"
+                                VerticalOptions="Center"
+                                Spacing="2">
+
+                                <Label
+                                    Text="Timing"
+                                    FontSize="14"
+                                    FontAttributes="Bold"
+                                    TextColor="#171717" />
+
+                                <Label
+                                    Text="Pacing and presentation length."
+                                    FontSize="12"
+                                    TextColor="#777777" />
+
+                            </VerticalStackLayout>
+
+                            <Label
+                                Grid.Column="2"
+                                Text="--"
+                                FontSize="14"
+                                FontAttributes="Bold"
+                                TextColor="#6C3BDE"
+                                VerticalOptions="Center" />
+
+                        </Grid>
+
+                    </Border>
+
+
+                    <!-- Confidence -->
+                    <Border
+                        Padding="16"
+                        BackgroundColor="White"
+                        Stroke="#E5E5EA"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 16">
+
+                        <Grid
+                            ColumnDefinitions="Auto,*,Auto"
+                            ColumnSpacing="14">
+
+                            <Border
+                                Grid.Column="0"
+                                WidthRequest="42"
+                                HeightRequest="42"
+                                BackgroundColor="#F0EBFF"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 12">
+
+                                <Label
+                                    Text="★"
+                                    FontSize="20"
+                                    TextColor="#6C3BDE"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center" />
+
+                            </Border>
+
+                            <VerticalStackLayout
+                                Grid.Column="1"
+                                VerticalOptions="Center"
+                                Spacing="2">
+
+                                <Label
+                                    Text="Confidence"
+                                    FontSize="14"
+                                    FontAttributes="Bold"
+                                    TextColor="#171717" />
+
+                                <Label
+                                    Text="Confidence and overall delivery."
+                                    FontSize="12"
+                                    TextColor="#777777" />
+
+                            </VerticalStackLayout>
+
+                            <Label
+                                Grid.Column="2"
+                                Text="--"
+                                FontSize="14"
+                                FontAttributes="Bold"
+                                TextColor="#6C3BDE"
+                                VerticalOptions="Center" />
+
+                        </Grid>
+
+                    </Border>
+
+                </VerticalStackLayout>
+
+
+                <!-- SUGGESTION CARD -->
+                <Border
+                    Padding="20"
+                    BackgroundColor="#F0EBFF"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 18">
+
+                    <VerticalStackLayout
+                        Spacing="8">
+
+                        <Label
+                            Text="✦ Suggested improvement"
+                            FontSize="14"
+                            FontAttributes="Bold"
+                            TextColor="#3D237D" />
+
+                        <Label
+                            Text="Your personalised suggestions will appear here after you complete a practice session."
+                            FontSize="13"
+                            TextColor="#6F5A99"
+                            LineBreakMode="WordWrap" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <!-- RESPONSIBLE AI -->
+                <Border
+                    Padding="18"
+                    BackgroundColor="White"
+                    Stroke="#E5E5EA"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 16">
+
+                    <VerticalStackLayout
+                        Spacing="6">
+
+                        <Label
+                            Text="Responsible AI"
+                            FontSize="13"
+                            FontAttributes="Bold"
+                            TextColor="#171717" />
+
+                        <Label
+                            Text="AI feedback is designed to support your growth. You remain in control of your presentation and final decisions."
+                            FontSize="12"
+                            TextColor="#777777"
+                            LineBreakMode="WordWrap" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+    </Grid>
+
+</ContentPage>

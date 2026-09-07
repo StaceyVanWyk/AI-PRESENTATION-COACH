@@ -1,26 +1,452 @@
 <?xml version="1.0" encoding="utf-8" ?>
+
 <ContentPage
     x:Class="AI_Presentation_Coach.PracticePage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="Practice">
+    Title="Practice"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#F7F7FB">
 
-    <VerticalStackLayout
-        Padding="30"
-        Spacing="20">
+    <Grid
+        RowDefinitions="Auto,*">
 
-        <Label
-            Text="Practice Presentation"
-            FontSize="28"
-            FontAttributes="Bold"
-            HorizontalOptions="Center" />
+        <!-- HEADER -->
+        <Grid
+            Grid.Row="0"
+            Padding="20,16"
+            BackgroundColor="White"
+            ColumnDefinitions="Auto,*,Auto">
 
-        <Label
-            Text="Your practice session will appear here."
-            FontSize="18"
-            HorizontalOptions="Center"
-            HorizontalTextAlignment="Center" />
+            <!-- Back -->
+            <Button
+                Grid.Column="0"
+                Text="‹"
+                FontSize="32"
+                BackgroundColor="Transparent"
+                TextColor="#171717"
+                WidthRequest="45"
+                HeightRequest="45"
+                Padding="0"
+                Clicked="OnBackClicked" />
 
-    </VerticalStackLayout>
+            <!-- Title -->
+            <VerticalStackLayout
+                Grid.Column="1"
+                VerticalOptions="Center"
+                Spacing="2">
+
+                <Label
+                    Text="Practice"
+                    FontSize="21"
+                    FontAttributes="Bold"
+                    TextColor="#171717" />
+
+                <Label
+                    Text="Build confidence before you present"
+                    FontSize="12"
+                    TextColor="#777777" />
+
+            </VerticalStackLayout>
+
+            <!-- AI status -->
+            <Border
+                Grid.Column="2"
+                Padding="12,7"
+                BackgroundColor="#F0EBFF"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 10"
+                VerticalOptions="Center">
+
+                <Label
+                    Text="AI COACH"
+                    FontSize="10"
+                    FontAttributes="Bold"
+                    TextColor="#6C3BDE" />
+
+            </Border>
+
+        </Grid>
+
+
+        <!-- MAIN CONTENT -->
+        <ScrollView
+            Grid.Row="1">
+
+            <VerticalStackLayout
+                Padding="20,24,20,35"
+                Spacing="20">
+
+                <!-- INTRO -->
+                <VerticalStackLayout
+                    Spacing="5">
+
+                    <Label
+                        Text="Practice your presentation"
+                        FontSize="25"
+                        FontAttributes="Bold"
+                        TextColor="#171717" />
+
+                    <Label
+                        Text="Rehearse your delivery and get ready to present with confidence."
+                        FontSize="14"
+                        TextColor="#777777"
+                        LineBreakMode="WordWrap" />
+
+                </VerticalStackLayout>
+
+
+                <!-- PRACTICE HERO -->
+                <Border
+                    Padding="24"
+                    BackgroundColor="#6C3BDE"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 20">
+
+                    <VerticalStackLayout
+                        Spacing="15">
+
+                        <Border
+                            WidthRequest="58"
+                            HeightRequest="58"
+                            BackgroundColor="#8158E5"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 17">
+
+                            <Label
+                                Text="🎤"
+                                FontSize="28"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center" />
+
+                        </Border>
+
+                        <Label
+                            Text="Ready to practise?"
+                            FontSize="24"
+                            FontAttributes="Bold"
+                            TextColor="White" />
+
+                        <Label
+                            Text="Start a practice session and work on your delivery, timing and confidence."
+                            FontSize="14"
+                            TextColor="#E9E1FF"
+                            LineBreakMode="WordWrap" />
+
+                        <Button
+                            Text="Start Practice  →"
+                            FontSize="15"
+                            FontAttributes="Bold"
+                            BackgroundColor="White"
+                            TextColor="#6C3BDE"
+                            CornerRadius="11"
+                            HeightRequest="48"
+                            Margin="0,5,0,0"
+                            Clicked="OnStartPracticeClicked" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <!-- SESSION STATS -->
+                <Grid
+                    ColumnDefinitions="*,*"
+                    ColumnSpacing="14">
+
+                    <!-- Practice time -->
+                    <Border
+                        Grid.Column="0"
+                        Padding="18"
+                        BackgroundColor="White"
+                        Stroke="#E5E5EA"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 18">
+
+                        <VerticalStackLayout
+                            Spacing="7">
+
+                            <Label
+                                Text="⏱"
+                                FontSize="22"
+                                TextColor="#6C3BDE" />
+
+                            <Label
+                                Text="00:00"
+                                FontSize="22"
+                                FontAttributes="Bold"
+                                TextColor="#171717" />
+
+                            <Label
+                                Text="Practice time"
+                                FontSize="12"
+                                TextColor="#777777" />
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+
+                    <!-- Confidence -->
+                    <Border
+                        Grid.Column="1"
+                        Padding="18"
+                        BackgroundColor="White"
+                        Stroke="#E5E5EA"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 18">
+
+                        <VerticalStackLayout
+                            Spacing="7">
+
+                            <Label
+                                Text="✦"
+                                FontSize="22"
+                                TextColor="#6C3BDE" />
+
+                            <Label
+                                Text="--"
+                                FontSize="22"
+                                FontAttributes="Bold"
+                                TextColor="#171717" />
+
+                            <Label
+                                Text="Confidence score"
+                                FontSize="12"
+                                TextColor="#777777" />
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                </Grid>
+
+
+                <!-- AI COACH -->
+                <Border
+                    Padding="20"
+                    BackgroundColor="#F0EBFF"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 18">
+
+                    <VerticalStackLayout
+                        Spacing="12">
+
+                        <HorizontalStackLayout
+                            Spacing="12">
+
+                            <Border
+                                WidthRequest="44"
+                                HeightRequest="44"
+                                BackgroundColor="#6C3BDE"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 13">
+
+                                <Label
+                                    Text="✦"
+                                    FontSize="22"
+                                    TextColor="White"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center" />
+
+                            </Border>
+
+                            <VerticalStackLayout
+                                VerticalOptions="Center"
+                                Spacing="2">
+
+                                <Label
+                                    Text="AI Coach"
+                                    FontSize="15"
+                                    FontAttributes="Bold"
+                                    TextColor="#3D237D" />
+
+                                <Label
+                                    Text="Your personal presentation coach"
+                                    FontSize="12"
+                                    TextColor="#6F5A99" />
+
+                            </VerticalStackLayout>
+
+                        </HorizontalStackLayout>
+
+                        <Label
+                            Text="After your practice session, AI Coach will help identify areas where you can improve your message and delivery."
+                            FontSize="13"
+                            TextColor="#5F4B86"
+                            LineBreakMode="WordWrap" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <!-- WHAT WE WILL ANALYSE -->
+                <VerticalStackLayout
+                    Spacing="12">
+
+                    <Label
+                        Text="What you'll improve"
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        TextColor="#171717" />
+
+                    <Border
+                        Padding="16"
+                        BackgroundColor="White"
+                        Stroke="#E5E5EA"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 16">
+
+                        <Grid
+                            ColumnDefinitions="Auto,*"
+                            ColumnSpacing="14">
+
+                            <Label
+                                Grid.Column="0"
+                                Text="01"
+                                FontSize="13"
+                                FontAttributes="Bold"
+                                TextColor="#6C3BDE"
+                                VerticalOptions="Center" />
+
+                            <VerticalStackLayout
+                                Grid.Column="1"
+                                Spacing="2">
+
+                                <Label
+                                    Text="Delivery"
+                                    FontSize="14"
+                                    FontAttributes="Bold"
+                                    TextColor="#171717" />
+
+                                <Label
+                                    Text="Practise speaking clearly and naturally."
+                                    FontSize="12"
+                                    TextColor="#777777" />
+
+                            </VerticalStackLayout>
+
+                        </Grid>
+
+                    </Border>
+
+
+                    <Border
+                        Padding="16"
+                        BackgroundColor="White"
+                        Stroke="#E5E5EA"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 16">
+
+                        <Grid
+                            ColumnDefinitions="Auto,*"
+                            ColumnSpacing="14">
+
+                            <Label
+                                Grid.Column="0"
+                                Text="02"
+                                FontSize="13"
+                                FontAttributes="Bold"
+                                TextColor="#6C3BDE"
+                                VerticalOptions="Center" />
+
+                            <VerticalStackLayout
+                                Grid.Column="1"
+                                Spacing="2">
+
+                                <Label
+                                    Text="Timing"
+                                    FontSize="14"
+                                    FontAttributes="Bold"
+                                    TextColor="#171717" />
+
+                                <Label
+                                    Text="Keep your presentation focused and on track."
+                                    FontSize="12"
+                                    TextColor="#777777" />
+
+                            </VerticalStackLayout>
+
+                        </Grid>
+
+                    </Border>
+
+
+                    <Border
+                        Padding="16"
+                        BackgroundColor="White"
+                        Stroke="#E5E5EA"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 16">
+
+                        <Grid
+                            ColumnDefinitions="Auto,*"
+                            ColumnSpacing="14">
+
+                            <Label
+                                Grid.Column="0"
+                                Text="03"
+                                FontSize="13"
+                                FontAttributes="Bold"
+                                TextColor="#6C3BDE"
+                                VerticalOptions="Center" />
+
+                            <VerticalStackLayout
+                                Grid.Column="1"
+                                Spacing="2">
+
+                                <Label
+                                    Text="Confidence"
+                                    FontSize="14"
+                                    FontAttributes="Bold"
+                                    TextColor="#171717" />
+
+                                <Label
+                                    Text="Build confidence before presenting to your audience."
+                                    FontSize="12"
+                                    TextColor="#777777" />
+
+                            </VerticalStackLayout>
+
+                        </Grid>
+
+                    </Border>
+
+                </VerticalStackLayout>
+
+
+                <!-- RESPONSIBLE AI -->
+                <Border
+                    Padding="18"
+                    BackgroundColor="White"
+                    Stroke="#E5E5EA"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 16">
+
+                    <VerticalStackLayout
+                        Spacing="6">
+
+                        <Label
+                            Text="Responsible AI"
+                            FontSize="13"
+                            FontAttributes="Bold"
+                            TextColor="#171717" />
+
+                        <Label
+                            Text="AI suggestions are designed to support your presentation — you remain in control of your content."
+                            FontSize="12"
+                            TextColor="#777777"
+                            LineBreakMode="WordWrap" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+    </Grid>
 
 </ContentPage>

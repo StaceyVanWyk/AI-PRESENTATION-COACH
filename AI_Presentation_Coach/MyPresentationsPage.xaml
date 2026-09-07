@@ -4,38 +4,169 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="AI_Presentation_Coach.MyPresentationsPage"
-    Title="My Presentations">
+    Title="My Presentations"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#F7F7FB">
 
-    <ScrollView>
+    <Grid RowDefinitions="Auto,*">
 
-        <VerticalStackLayout
-            Padding="20"
-            Spacing="20"
-            BackgroundColor="#F7F7FB">
+        <!-- Header -->
+        <Grid
+            Grid.Row="0"
+            Padding="20,18"
+            BackgroundColor="White"
+            ColumnDefinitions="Auto,*">
 
-            <!-- Header -->
-            <VerticalStackLayout Spacing="4">
+            <Button
+                Grid.Column="0"
+                Text="‹"
+                FontSize="32"
+                BackgroundColor="Transparent"
+                TextColor="#171717"
+                WidthRequest="45"
+                HeightRequest="45"
+                Padding="0"
+                Clicked="OnBackClicked" />
+
+            <VerticalStackLayout
+                Grid.Column="1"
+                VerticalOptions="Center"
+                Spacing="2">
 
                 <Label
                     Text="My Presentations"
-                    FontSize="28"
+                    FontSize="21"
                     FontAttributes="Bold"
                     TextColor="#171717" />
 
                 <Label
-                    Text="View and manage your presentations."
-                    FontSize="15"
+                    Text="Your presentation workspace"
+                    FontSize="12"
                     TextColor="#777777" />
 
             </VerticalStackLayout>
 
-            <!-- Presentations will appear here -->
+        </Grid>
+
+
+        <!-- Main Content -->
+        <ScrollView Grid.Row="1">
+
             <VerticalStackLayout
-                x:Name="PresentationsContainer"
-                Spacing="15" />
+                Padding="20,24,20,35"
+                Spacing="20">
 
-        </VerticalStackLayout>
+                <!-- Intro -->
+                <VerticalStackLayout Spacing="5">
 
-    </ScrollView>
+                    <Label
+                        Text="Your presentations"
+                        FontSize="24"
+                        FontAttributes="Bold"
+                        TextColor="#171717" />
+
+                    <Label
+                        Text="Create, edit and practise your ideas."
+                        FontSize="14"
+                        TextColor="#777777" />
+
+                </VerticalStackLayout>
+
+
+                <!-- Presentation Cards -->
+                <VerticalStackLayout
+                    x:Name="PresentationsContainer"
+                    Spacing="15" />
+
+
+                <!-- Create New -->
+                <Border
+                    Padding="18"
+                    BackgroundColor="#F0EBFF"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 18">
+
+                    <HorizontalStackLayout
+                        Spacing="14">
+
+                        <Border
+                            WidthRequest="48"
+                            HeightRequest="48"
+                            BackgroundColor="#6C3BDE"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 14">
+
+                            <Label
+                                Text="+"
+                                FontSize="28"
+                                TextColor="White"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center" />
+
+                        </Border>
+
+                        <VerticalStackLayout
+                            VerticalOptions="Center"
+                            Spacing="3">
+
+                            <Label
+                                Text="Create a new presentation"
+                                FontSize="15"
+                                FontAttributes="Bold"
+                                TextColor="#3D237D" />
+
+                            <Label
+                                Text="Start with AI-powered guidance"
+                                FontSize="12"
+                                TextColor="#6F5A99" />
+
+                        </VerticalStackLayout>
+
+                    </HorizontalStackLayout>
+
+                </Border>
+
+
+                <!-- Responsible AI -->
+                <Border
+                    Padding="18"
+                    BackgroundColor="White"
+                    Stroke="#E5E5EA"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 18">
+
+                    <HorizontalStackLayout
+                        Spacing="12">
+
+                        <Label
+                            Text="🛡️"
+                            FontSize="22"
+                            VerticalOptions="Start" />
+
+                        <VerticalStackLayout Spacing="4">
+
+                            <Label
+                                Text="Your content stays under your control"
+                                FontSize="14"
+                                FontAttributes="Bold"
+                                TextColor="#333333" />
+
+                            <Label
+                                Text="AI helps you improve your ideas without replacing your voice."
+                                FontSize="12"
+                                TextColor="#777777"
+                                LineBreakMode="WordWrap" />
+
+                        </VerticalStackLayout>
+
+                    </HorizontalStackLayout>
+
+                </Border>
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+    </Grid>
 
 </ContentPage>

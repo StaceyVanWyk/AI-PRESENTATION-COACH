@@ -1,8 +1,8 @@
 namespace AI_Presentation_Coach;
 
-public partial class PracticePage : ContentPage
+public partial class AICoachPage : ContentPage
 {
-    public PracticePage()
+    public AICoachPage()
     {
         InitializeComponent();
     }
@@ -12,11 +12,11 @@ public partial class PracticePage : ContentPage
         await Navigation.PopAsync();
     }
 
-    private async void OnStartPracticeClicked(object? sender, EventArgs e)
+    private async void OnAnalyseClicked(object? sender, EventArgs e)
     {
         await DisplayAlertAsync(
-            "Practice Session",
-            "Practice mode will be connected next.",
+            "AI Coach",
+            "Presentation analysis will be connected next.",
             "OK");
     }
 }

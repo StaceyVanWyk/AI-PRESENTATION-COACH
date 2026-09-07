@@ -1,87 +1,381 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AI_Presentation_Coach.CreatePresentationPage"
-             Title="Create Presentation">
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AI_Presentation_Coach.CreatePresentationPage"
+    Title="Create Presentation"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#F7F7FB">
 
-    <ScrollView>
+    <Grid RowDefinitions="Auto,*">
 
-        <VerticalStackLayout
-            Spacing="10"
-            Padding="20">
+        <!-- Header -->
+        <Grid
+            Grid.Row="0"
+            Padding="20,18"
+            BackgroundColor="White"
+            ColumnDefinitions="Auto,*">
 
-            <!-- Page Heading -->
-            <Label
-                Text="Create Your Presentation"
-                FontSize="24"
-                FontAttributes="Bold"
-                HorizontalOptions="Center"
-                Margin="0,10,0,20" />
-
-            <!-- Presentation Title -->
-            <Label
-                Text="Presentation Title"
-                FontAttributes="Bold" />
-
-            <Entry
-                x:Name="PresentationTitleEntry"
-                Placeholder="Enter presentation title" />
-
-            <!-- Presentation Topic -->
-            <Label
-                Text="Presentation Topic"
-                FontAttributes="Bold" />
-
-            <Entry
-                x:Name="PresentationTopicEntry"
-                Placeholder="Enter presentation topic" />
-
-            <!-- Audience -->
-            <Label
-                Text="Audience"
-                FontAttributes="Bold" />
-
-            <Picker
-                x:Name="AudiencePicker"
-                Title="Select Audience">
-
-                <Picker.Items>
-                    <x:String>Students</x:String>
-                    <x:String>Professionals</x:String>
-                    <x:String>General Public</x:String>
-                    <x:String>Lecturers</x:String>
-                </Picker.Items>
-
-            </Picker>
-
-            <!-- Presentation Type -->
-            <Label
-                Text="Presentation Type"
-                FontAttributes="Bold" />
-
-            <Picker
-                x:Name="PresentationTypePicker"
-                Title="Select Presentation Type">
-
-                <Picker.Items>
-                    <x:String>School / Academic</x:String>
-                    <x:String>Business Pitch</x:String>
-                    <x:String>Project Presentation</x:String>
-                    <x:String>Informative</x:String>
-                    <x:String>Persuasive</x:String>
-                </Picker.Items>
-
-            </Picker>
-
-            <!-- Create Button -->
             <Button
-                Text="Create Presentation"
-                Margin="0,20,0,0" 
-                Clicked="OnCreatePresentationClicked"/>
+                Grid.Column="0"
+                Text="‹"
+                FontSize="32"
+                BackgroundColor="Transparent"
+                TextColor="#171717"
+                WidthRequest="45"
+                HeightRequest="45"
+                Padding="0"
+                Clicked="OnBackClicked" />
 
-        </VerticalStackLayout>
+            <VerticalStackLayout
+                Grid.Column="1"
+                VerticalOptions="Center"
+                Spacing="2">
 
-    </ScrollView>
+                <Label
+                    Text="Create Presentation"
+                    FontSize="21"
+                    FontAttributes="Bold"
+                    TextColor="#171717" />
+
+                <Label
+                    Text="Let's build something great"
+                    FontSize="12"
+                    TextColor="#777777" />
+
+            </VerticalStackLayout>
+
+        </Grid>
+
+
+        <!-- Main Content -->
+        <ScrollView Grid.Row="1">
+
+            <VerticalStackLayout
+                Padding="20,25,20,35"
+                Spacing="20">
+
+                <!-- Introduction -->
+                <VerticalStackLayout
+                    Spacing="7">
+
+                    <Label
+                        Text="Tell us about your presentation"
+                        FontSize="25"
+                        FontAttributes="Bold"
+                        TextColor="#171717" />
+
+                    <Label
+                        Text="Give us a few details and AI will help you shape your presentation."
+                        FontSize="14"
+                        TextColor="#777777"
+                        LineBreakMode="WordWrap" />
+
+                </VerticalStackLayout>
+
+
+                <!-- Progress -->
+                <Grid
+                    ColumnDefinitions="Auto,*,Auto,*,Auto"
+                    VerticalOptions="Center">
+
+                    <Border
+                        Grid.Column="0"
+                        WidthRequest="32"
+                        HeightRequest="32"
+                        BackgroundColor="#6C3BDE"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 10">
+
+                        <Label
+                            Text="1"
+                            FontSize="13"
+                            FontAttributes="Bold"
+                            TextColor="White"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+
+                    </Border>
+
+                    <BoxView
+                        Grid.Column="1"
+                        HeightRequest="2"
+                        BackgroundColor="#DCD2F7"
+                        VerticalOptions="Center"
+                        Margin="5,0" />
+
+                    <Border
+                        Grid.Column="2"
+                        WidthRequest="32"
+                        HeightRequest="32"
+                        BackgroundColor="#E8E2F9"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 10">
+
+                        <Label
+                            Text="2"
+                            FontSize="13"
+                            FontAttributes="Bold"
+                            TextColor="#6C3BDE"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+
+                    </Border>
+
+                    <BoxView
+                        Grid.Column="3"
+                        HeightRequest="2"
+                        BackgroundColor="#E5E5EA"
+                        VerticalOptions="Center"
+                        Margin="5,0" />
+
+                    <Border
+                        Grid.Column="4"
+                        WidthRequest="32"
+                        HeightRequest="32"
+                        BackgroundColor="#EEEEF2"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 10">
+
+                        <Label
+                            Text="3"
+                            FontSize="13"
+                            FontAttributes="Bold"
+                            TextColor="#999999"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+
+                    </Border>
+
+                </Grid>
+
+
+                <!-- Presentation Details Card -->
+                <Border
+                    Padding="20"
+                    BackgroundColor="White"
+                    Stroke="#E5E5EA"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 20">
+
+                    <VerticalStackLayout
+                        Spacing="18">
+
+                        <Label
+                            Text="Presentation details"
+                            FontSize="18"
+                            FontAttributes="Bold"
+                            TextColor="#171717" />
+
+
+                        <!-- Title -->
+                        <VerticalStackLayout Spacing="7">
+
+                            <Label
+                                Text="Presentation Title"
+                                FontSize="14"
+                                FontAttributes="Bold"
+                                TextColor="#333333" />
+
+                            <Border
+                                BackgroundColor="#F7F7FB"
+                                Stroke="#E2E2EA"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 12"
+                                Padding="12,0">
+
+                                <Entry
+                                    x:Name="PresentationTitleEntry"
+                                    Placeholder="e.g. The Future of AI"
+                                    BackgroundColor="Transparent"
+                                    TextColor="#171717"
+                                    PlaceholderColor="#999999" />
+
+                            </Border>
+
+                        </VerticalStackLayout>
+
+
+                        <!-- Topic -->
+                        <VerticalStackLayout Spacing="7">
+
+                            <Label
+                                Text="What is it about?"
+                                FontSize="14"
+                                FontAttributes="Bold"
+                                TextColor="#333333" />
+
+                            <Border
+                                BackgroundColor="#F7F7FB"
+                                Stroke="#E2E2EA"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 12"
+                                Padding="12,0">
+
+                                <Entry
+                                    x:Name="PresentationTopicEntry"
+                                    Placeholder="e.g. How AI is changing education"
+                                    BackgroundColor="Transparent"
+                                    TextColor="#171717"
+                                    PlaceholderColor="#999999" />
+
+                            </Border>
+
+                        </VerticalStackLayout>
+
+
+                        <!-- Audience -->
+                        <VerticalStackLayout Spacing="7">
+
+                            <Label
+                                Text="Who are you presenting to?"
+                                FontSize="14"
+                                FontAttributes="Bold"
+                                TextColor="#333333" />
+
+                            <Border
+                                BackgroundColor="#F7F7FB"
+                                Stroke="#E2E2EA"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 12"
+                                Padding="8,0">
+
+                                <Picker
+                                    x:Name="AudiencePicker"
+                                    Title="Select your audience"
+                                    TextColor="#171717"
+                                    TitleColor="#999999">
+
+                                    <Picker.Items>
+                                        <x:String>Students</x:String>
+                                        <x:String>Professionals</x:String>
+                                        <x:String>General Public</x:String>
+                                        <x:String>Lecturers</x:String>
+                                    </Picker.Items>
+
+                                </Picker>
+
+                            </Border>
+
+                        </VerticalStackLayout>
+
+
+                        <!-- Presentation Type -->
+                        <VerticalStackLayout Spacing="7">
+
+                            <Label
+                                Text="What type of presentation?"
+                                FontSize="14"
+                                FontAttributes="Bold"
+                                TextColor="#333333" />
+
+                            <Border
+                                BackgroundColor="#F7F7FB"
+                                Stroke="#E2E2EA"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 12"
+                                Padding="8,0">
+
+                                <Picker
+                                    x:Name="PresentationTypePicker"
+                                    Title="Select presentation type"
+                                    TextColor="#171717"
+                                    TitleColor="#999999">
+
+                                    <Picker.Items>
+                                        <x:String>School / Academic</x:String>
+                                        <x:String>Business Pitch</x:String>
+                                        <x:String>Project Presentation</x:String>
+                                        <x:String>Informative</x:String>
+                                        <x:String>Persuasive</x:String>
+                                    </Picker.Items>
+
+                                </Picker>
+
+                            </Border>
+
+                        </VerticalStackLayout>
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <!-- AI Message -->
+                <Border
+                    Padding="18"
+                    BackgroundColor="#F0EBFF"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 18">
+
+                    <HorizontalStackLayout
+                        Spacing="12">
+
+                        <Border
+                            WidthRequest="42"
+                            HeightRequest="42"
+                            BackgroundColor="#6C3BDE"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 12">
+
+                            <Label
+                                Text="✦"
+                                FontSize="21"
+                                TextColor="White"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center" />
+
+                        </Border>
+
+                        <VerticalStackLayout
+                            VerticalOptions="Center"
+                            Spacing="3">
+
+                            <Label
+                                Text="AI-powered guidance"
+                                FontSize="14"
+                                FontAttributes="Bold"
+                                TextColor="#3D237D" />
+
+                            <Label
+                                Text="We'll help you organise your ideas into a clear structure."
+                                FontSize="12"
+                                TextColor="#6F5A99"
+                                LineBreakMode="WordWrap" />
+
+                        </VerticalStackLayout>
+
+                    </HorizontalStackLayout>
+
+                </Border>
+
+
+                <!-- Create Button -->
+                <Button
+                    Text="Create My Presentation  →"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    BackgroundColor="#6C3BDE"
+                    TextColor="White"
+                    CornerRadius="13"
+                    HeightRequest="54"
+                    Margin="0,2,0,0"
+                    Clicked="OnCreatePresentationClicked" />
+
+
+                <!-- Privacy -->
+                <Label
+                    Text="Your presentation content stays under your control."
+                    FontSize="12"
+                    TextColor="#888888"
+                    HorizontalTextAlignment="Center"
+                    Margin="10,0,10,0" />
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+    </Grid>
 
 </ContentPage>
