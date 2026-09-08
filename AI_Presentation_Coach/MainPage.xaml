@@ -240,6 +240,9 @@
                         Stroke="#E5E5EA"
                         StrokeThickness="1"
                         StrokeShape="RoundRectangle 18">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSettingsTapped" />
+                        </Border.GestureRecognizers>
 
                         <VerticalStackLayout
                             Spacing="10">

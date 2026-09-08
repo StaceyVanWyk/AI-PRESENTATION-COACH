@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AI_Presentation_Coach.SettingsPage"
+    Title="Settings"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#F7F7FB">
+
+    <!-- Main page layout -->
+    <Grid
+        RowDefinitions="Auto,*">
+
+        <!-- ==================== -->
+        <!-- HEADER - ROW 0        -->
+        <!-- ==================== -->
+
+        <Grid
+            Grid.Row="0"
+            Padding="20,16"
+            BackgroundColor="White"
+            ColumnDefinitions="Auto,*,Auto">
+
+            <!-- Back Button -->
+            <Button
+                Grid.Column="0"
+                Text="‹"
+                FontSize="32"
+                BackgroundColor="Transparent"
+                TextColor="#171717"
+                WidthRequest="45"
+                HeightRequest="45"
+                Padding="0" />
+
+            <!-- Header Title -->
+            <VerticalStackLayout
+                Grid.Column="1"
+                VerticalOptions="Center"
+                Spacing="2">
+
+                <Label
+                    Text="Settings"
+                    FontSize="21"
+                    FontAttributes="Bold"
+                    TextColor="#171717" />
+
+                <Label
+                    Text="Manage your app"
+                    FontSize="12"
+                    TextColor="#777777" />
+
+            </VerticalStackLayout>
+
+            <!-- Settings Icon -->
+            <Border
+                Grid.Column="2"
+                WidthRequest="44"
+                HeightRequest="44"
+                BackgroundColor="#F0EBFF"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 13">
+
+                <Label
+                    Text="⚙"
+                    FontSize="21"
+                    TextColor="#6C3BDE"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+
+            </Border>
+
+        </Grid>
+
+
+        <!-- ==================== -->
+        <!-- SETTINGS - ROW 1      -->
+        <!-- ==================== -->
+
+        <ScrollView
+            Grid.Row="1">
+
+            <VerticalStackLayout
+                Padding="20,24,20,35"
+                Spacing="20">
+
+
+                <!-- ==================== -->
+                <!-- ACCOUNT SECTION       -->
+                <!-- ==================== -->
+
+                <VerticalStackLayout
+                    Spacing="5">
+
+                    <Label
+                        Text="Account"
+                        FontSize="19"
+                        FontAttributes="Bold"
+                        TextColor="#171717" />
+
+                    <Label
+                        Text="Manage your account information"
+                        FontSize="13"
+                        TextColor="#777777" />
+
+                </VerticalStackLayout>
+
+
+                <!-- ==================== -->
+                <!-- PERSONALISATION       -->
+                <!-- ==================== -->
+
+                <Border
+                    Padding="16"
+                    BackgroundColor="White"
+                    Stroke="#E5E5EA"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 16">
+
+                    <Grid
+                        ColumnDefinitions="*,Auto"
+                        ColumnSpacing="15">
+
+                        <!-- Setting description -->
+                        <VerticalStackLayout
+                            Grid.Column="0"
+                            Spacing="3">
+
+                            <Label
+                                Text="Personalisation"
+                                FontSize="15"
+                                FontAttributes="Bold"
+                                TextColor="#171717" />
+
+                            <Label
+                                Text="Use your preferences to personalise your experience."
+                                FontSize="12"
+                                TextColor="#777777"
+                                LineBreakMode="WordWrap" />
+
+                        </VerticalStackLayout>
+
+
+                        <!-- ON / OFF Switch -->
+                        <Switch
+                            Grid.Column="1"
+                            IsToggled="True"
+                            OnColor="#6C3BDE"
+                            ThumbColor="White"
+                            VerticalOptions="Center"
+                            Toggled="OnPersonalisationToggled" />
+
+                    </Grid>
+
+                </Border>
+
+
+                <!-- ==================== -->
+                <!-- PREFERENCES SECTION   -->
+                <!-- ==================== -->
+
+                <VerticalStackLayout
+                    Spacing="5">
+
+                    <Label
+                        Text="Preferences"
+                        FontSize="19"
+                        FontAttributes="Bold"
+                        TextColor="#171717" />
+
+                    <Label
+                        Text="Customise your presentation experience"
+                        FontSize="13"
+                        TextColor="#777777" />
+
+                </VerticalStackLayout>
+
+
+                <!-- ==================== -->
+                <!-- PRESENTATION DIFFICULTY -->
+                <!-- ==================== -->
+
+                <Border
+                    Padding="16"
+                    BackgroundColor="White"
+                    Stroke="#E5E5EA"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 16">
+
+                    <VerticalStackLayout
+                        Spacing="8">
+
+                        <Label
+                            Text="Presentation difficulty"
+                            FontSize="15"
+                            FontAttributes="Bold"
+                            TextColor="#171717" />
+
+                        <Label
+                            Text="Choose the level that suits your experience."
+                            FontSize="12"
+                            TextColor="#777777"
+                            LineBreakMode="WordWrap" />
+
+                        <Picker
+                            Title="Select difficulty"
+                            FontSize="14"
+                            TextColor="#171717"
+                            SelectedIndexChanged="OnDifficultyChanged">
+
+                            <Picker.Items>
+
+                                <x:String>Beginner</x:String>
+
+                                <x:String>Intermediate</x:String>
+
+                                <x:String>Advanced</x:String>
+
+                            </Picker.Items>
+
+                        </Picker>
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+                <!-- ==================== -->
+                <!-- PRACTICE DURATION    -->
+                <!-- ==================== -->
+
+                <Border
+                    Padding="16"
+                    BackgroundColor="White"
+                    Stroke="#E5E5EA"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 16">
+
+                    <VerticalStackLayout
+                        Spacing="8">
+
+                        <Label
+                            Text="Practice duration"
+                            FontSize="15"
+                            FontAttributes="Bold"
+                            TextColor="#171717" />
+
+                        <Label
+                            Text="Choose how long you want to practise."
+                            FontSize="12"
+                            TextColor="#777777"
+                            LineBreakMode="WordWrap" />
+                        <Label
+    x:Name="PracticeDurationLabel"
+    Text="15 minutes"
+    FontSize="16"
+    FontAttributes="Bold"
+    TextColor="#6C3BDE" />
+
+                        <Slider
+                            Minimum="5"
+                            Maximum="60"
+                            Value="15"
+                            MinimumTrackColor="#6C3BDE"
+                            MaximumTrackColor="#E5E5EA"
+                            ThumbColor="#6C3BDE"
+                            ValueChanged="OnPracticeDurationChanged" />
+
+                    </VerticalStackLayout>
+
+                </Border>
+
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+    </Grid>
+
+</ContentPage>

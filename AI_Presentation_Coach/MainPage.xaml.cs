@@ -47,5 +47,13 @@ namespace AI_Presentation_Coach
         {
             await Navigation.PushAsync(new AICoachPage());
         }
+
+        private async void OnSettingsTapped(
+    object? sender,
+    TappedEventArgs e)
+        {
+            await Navigation.PushAsync(
+                new SettingsPage());
+        }
     }
 }
