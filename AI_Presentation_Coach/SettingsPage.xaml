@@ -12,9 +12,9 @@
     <Grid
         RowDefinitions="Auto,*">
 
-        <!-- ==================== -->
+        
         <!-- HEADER - ROW 0        -->
-        <!-- ==================== -->
+        
 
         <Grid
             Grid.Row="0"
@@ -31,7 +31,9 @@
                 TextColor="#171717"
                 WidthRequest="45"
                 HeightRequest="45"
-                Padding="0" />
+                Padding="0"
+                Clicked="OnBackClicked" 
+                />
 
             <!-- Header Title -->
             <VerticalStackLayout

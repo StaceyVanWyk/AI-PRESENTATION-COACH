@@ -40,4 +40,11 @@ public partial class SettingsPage : ContentPage
         PracticeDurationLabel.Text =
             $"{e.NewValue:F0} minutes";
     }
+
+    private async void OnBackClicked(
+    object? sender,
+    EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
 }
